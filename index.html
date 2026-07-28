@@ -1,24 +1,57 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>github-profile-analyzer</title>
-  </head>
-  <body class="  min-h-screen font-sans antialiased ">
-     <nav class="bg-linear-to-r from-slate-400 via-blue-500 to-slate-400  w-full p-4 flex items-center">
-        <h1 class="text-xl font-bold flex-1 text-center">
-            Github Profile Analyzer
-        </h1>
 
-        <a href="https://github.com/Tanmayyee" class="ml-auto mr-4">
-            Github
-        </a>
-    </nav>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&family=Press+Start+2P&display=swap"
+    rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>github-profile-analyzer</title>
+</head>
 
-    <main></main>
-    <footer></footer>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<body class=" min-h-screen font-sans antialiased">
+  <nav class="bg-blue-300 text-black w-11/12 max-w-5xl mx-auto mt-4 px-6 py-3 flex items-center rounded-full " >
+    <h1 class="text-xl font-bold flex-1 text-center font-press">
+      Github Profile Analyzer
+    </h1>
+
+    <a href="https://github.com/Tanmayyee" class="ml-auto mr-4 font-bold">
+      Github
+    </a>
+  </nav>
+
+  <main class="max-w-7xl mx-auto min-h-screen">
+
+    <section class="p-4 mt-10 mb-12 max-w-xl mx-auto flex justify-center ">
+    
+   <form id="search-form" class="flex items-center w-full max-w-xl bg-[#f0f5fb] rounded-full shadow-[0_10px_20px_-5px_rgba(0,10,40,0.15)] border-b-[4px] border-[#d5e0ee] px-2 py-0 focus-within:border-b-[1px] focus-within:translate-y-[3px] transition-all duration-200">
+    
+    <!-- Input Field (Reduced padding and text size) -->
+    <input type="text" id="search-input" placeholder="Enter username..."  autocomplete="off" required
+      class="flex-1 bg-transparent px-5 py-2.5 text-base font-medium text-slate-700 placeholder-slate-400 focus:outline-none"/>
+
+    <!-- Magnifying Glass Submit Button (Reduced icon and padding) -->
+    <button  type="submit"  class="p-2 mr-1 text-[#4f46e5] hover:text-[#3730a3] transition-colors focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+      </svg>
+    </button>
+
+  </form>
+
+  </section>
+
+  <section>
+
+  </section>
+
+  </main>
+  <footer></footer>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
 </html>
