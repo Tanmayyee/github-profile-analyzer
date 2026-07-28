@@ -40,10 +40,10 @@
 
     <!-- ########################################################### search username ############################################################# -->
 
-    <section class="p-4 mt-10 mb-12 max-w-xl mx-auto flex justify-center ">
+    <section class="p-4 mt-10 mb-12 max-w-xl mx-auto flex justify-center  ">
 
       <form id="search-form"
-        class="flex items-center w-full max-w-xl bg-[#f0f5fb] rounded-full shadow-[0_10px_20px_-5px_rgba(0,10,40,0.15)] border-b-4 border-[#d5e0ee] px-2 py-0 focus-within:border-b focus-within:translate-y-0.75 transition-all duration-200">
+        class="flex items-center w-full max-w-xl bg-[#f0f5fb] rounded-full shadow-[0_10px_20px_-5px_rgba(0,10,40,0.15)] border-b-4 border-[#d5e0ee] px-2 py-0 focus-within:border-b focus-within:translate-y-0.75 transition-all  duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
 
 
         <input type="text" id="search-input" placeholder="Enter username..." autocomplete="off" required
@@ -63,10 +63,10 @@
     
     <!--######################################################## Profile section & Language ##################################################### -->
 
-    <section class="max-w-6xl mx-auto flex flex-col md:flex-row gap-6 px-4 ">
+    <section class="max-w-6xl mx-auto flex flex-col md:flex-row gap-6 px-4 py-2 "> <!--max-w-6xl mx-auto px-4 py-2 mt-3 mb-10-->
 
       <!-- LEFT COLUMN: Identity Card -->
-      <div class="w-full md:w-1/3 flex flex-col items-center p-8 bg-white/95 rounded-3xl shadow-lg border border-slate-100" id="profile-sidebar">
+      <div class="w-full md:w-1/3 flex flex-col items-center p-8 bg-white/95 border-2 rounded-2xl shadow-gray-800 overflow-hidden shadow-md transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg " id="profile-sidebar">
         
         <!-- Note: Changed w-50/h-50 to w-48/h-48 because 50 is not a standard Tailwind class -->
         <img src="https://avatars.githubusercontent.com/u/220878413?v=4" alt="profile img" id="pimg"
@@ -95,7 +95,7 @@
       <div class="w-full md:w-2/3 flex flex-col gap-6">
         
         <!-- Details Card -->
-        <div class="p-8 bg-white/95 rounded-3xl shadow-lg border border-slate-100">
+        <div class="p-8 bg-white/95 border-2 rounded-2xl shadow-gray-800 overflow-hidden shadow-md transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
           <h3 class="text-xl font-bold text-slate-800 mb-6 border-b pb-2">About</h3>
           
           <!-- Grid aligns the labels and content perfectly -->
@@ -117,7 +117,7 @@
         </div>
 
         <!-- Language used card -->
-        <div class="p-8 bg-white/95 rounded-3xl shadow-lg border border-slate-100 flex flex-col justify-center">
+        <div class="p-8 bg-white/95 border-2 rounded-2xl shadow-gray-800 overflow-hidden shadow-md flex flex-col justify-center transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
           <h3 class="text-xl font-bold text-slate-800 mb-6 border-b pb-2">Languages Used</h3>
           
           <!-- Progress Bar Chart -->
@@ -155,16 +155,32 @@
 
     <!--########################################################### COUNTS ###################################################################### -->
        
-    <section class="max-w-6xl mx-auto px-4 py-2 mt-3 mb-10">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-         <p><span><span>5</span> Repositories</span></p>
-         <p><span><span>5</span> Repositories</span></p>
-         <p><span><span>5</span> Repositories</span></p>
+    <section class="max-w-6xl mx-auto px-4 py-2 mt-3 mb-10 ">
+     <div class="grid grid-cols-1 md:grid-cols-3 bg-white/95 text-center border-2 rounded-2xl shadow-gray-800 overflow-hidden shadow-md transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
+         
+         <!-- Stat Block 1: Repositories -->
+         <div class="p-6 hover:bg-green-100 transition-colors duration-300  ">
+            <p class="text-3xl font-extrabold text-slate-800 ">12</p>
+            <p class="text-xs font-semibold text-slate-500  mt-1 uppercase tracking-wider">Repositories</p>
+         </div>
+         
+         <!-- Stat Block 2: Followers -->
+         <div class="p-6 hover:bg-red-100 transition-colors duration-300">
+            <p class="text-3xl font-extrabold text-slate-800 ">2</p>
+            <p class="text-xs font-semibold text-slate-500 mt-1 uppercase tracking-wider">stars</p>
+         </div>
+         
+         <!-- Stat Block 3: Following -->
+         <div class="p-6 hover:bg-indigo-100 transition-colors duration-300 ">
+            <p class="text-3xl font-extrabold text-slate-800 ">30</p>
+            <p class="text-xs font-semibold text-slate-500  mt-1 uppercase tracking-wider">forks</p>
+         </div>
+
       </div>
     </section>
 
     <!--######################################################## Repositories ################################################################### -->
-    <section  class="max-w-6xl mx-auto px-4 py-2 mt-3 mb-10 ">
+    <section  class="max-w-6xl mx-auto px-4 py-2 mt-2 mb-10 ">
       <div>
         <h2 class="text-center font-bold text-2xl text-black mb-4 border-b-2 pb-2 ">REPOSITORIES</h2>
             <div id="repo" class=" grid gird-cols-1 md:grid-cols-2 gap-4 " >
