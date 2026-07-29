@@ -5,24 +5,3 @@
   --font-bitcount: "Bitcount Prop Single", sans-serif;
 }
 
-/* Left dot (Green) sliding right */
-@keyframes slideRight {
-  0% { left: 0%; opacity: 0; transform: scaleX(1); }
-  15% { opacity: 1; }
-  45%, 100% { left: 50%; opacity: 0; transform: translateX(-50%) scaleX(0.2); }
-}
-
-/* Right dot (Blue) sliding left */
-@keyframes slideLeft {
-  0% { right: 0%; opacity: 0; transform: scaleX(1); }
-  15% { opacity: 1; }
-  45%, 100% { right: 50%; opacity: 0; transform: translateX(50%) scaleX(0.2); }
-}
-
-/* The center explosion/merge effect (Amber) */
-@keyframes collision {
-  0%, 40% { opacity: 0; transform: scale(0.5); }
-  45% { opacity: 1; transform: scale(1.5); box-shadow: 0 0 12px 4px rgba(253, 230, 138, 0.8); }
-  60% { opacity: 0; transform: scale(2.5); }
-  100% { opacity: 0; }
-}
