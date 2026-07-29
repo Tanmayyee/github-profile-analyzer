@@ -18,24 +18,24 @@
 <body
   class=" min-h-screen font-sans antialiased bg-[url('https://images.unsplash.com/photo-1670893494919-412b65e5e58c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center bg-no-repeat">
 
-  <nav class="w-full max-w-7xl mx-auto mt-4 px-6 py-3 grid grid-cols-[1fr_auto_1fr] items-center text-white">
+  <nav class="w-full max-w-7xl mx-auto mt-4 px-4 sm:px-6 py-3 grid grid-cols-3 sm:grid-cols-[1fr_auto_1fr] items-center text-white gap-2">
 
-    <!-- Left Column (Empty to balance the right side) -->
-    <div></div>
+  <!-- Left Column (Empty to balance the right side) -->
+  <div></div>
 
-    <!-- Center Column (Perfectly aligned) -->
-    <h1 class="text-3xl font-bold font-press text-center whitespace-nowrap">
-      GitHub Profile Analyzer
-    </h1>
+  <!-- Center Column (Responsive font & text wrap) -->
+  <h1 class="text-lg sm:text-2xl md:text-3xl font-bold font-press text-center leading-tight">
+    GitHub Profile<span class="inline sm:block md:inline"> Analyzer</span>
+  </h1>
 
-    <!-- Right Column (Pushed to the right) -->
-    <div class="flex justify-end">
-      <a href="https://github.com/Tanmayyee" class="font-bold hover:text-amber-200 transition-colors">
-        GitHub
-      </a>
-    </div>
+  <!-- Right Column (Pushed to the right) -->
+  <div class="flex justify-end">
+    <a href="https://github.com/Tanmayyee" target="_blank" rel="noopener noreferrer" class="text-sm sm:text-base font-bold hover:text-amber-200 transition-colors">
+      GitHub
+    </a>
+  </div>
 
-  </nav>
+</nav>
 
   <main class="max-w-7xl mx-auto min-h-screen">
 
@@ -181,25 +181,25 @@
         class="grid grid-cols-1 md:grid-cols-4 bg-white/95 text-center border-2 rounded-2xl shadow-gray-800 overflow-hidden shadow-md transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
 
         <!-- Stat Block 1: Repositories -->
-        <div class="p-6 hover:bg-green-100 transition-colors duration-300 border-r border-gray-300   ">
+        <div class="p-6 hover:bg-emerald-50 hover:border-emerald-300 transition-colors duration-300 border-r border-gray-300   ">
           <p id="repoCount" class="text-3xl font-extrabold text-slate-800 ">12</p>
           <p class="text-xs font-semibold text-slate-500  mt-1 uppercase tracking-wider">Repositories</p>
         </div>
 
         <!-- Stat Block 2: stars earned -->
-        <div class="p-6 hover:bg-red-100 transition-colors duration-300 border-r border-gray-300">
+        <div class="p-6 hover:bg-amber-50 hover:border-amber-300 transition-colors duration-300 border-r border-l border-gray-300">
           <p id="starEarn" class="text-3xl font-extrabold text-slate-800 ">2</p>
           <p class="text-xs font-semibold text-slate-500 mt-1 uppercase tracking-wider">Stars Earned</p>
         </div>
 
         <!-- Stat Block 3: forks earned -->
-        <div class="p-6 hover:bg-indigo-100 transition-colors duration-300 border-r border-gray-300 ">
+        <div class="p-6 hover:bg-indigo-50 hover:border-indigo-300 transition-colors duration-300 border-r border-l border-gray-300  ">
           <p id="forkEarn" class="text-3xl font-extrabold text-slate-800 ">30</p>
           <p class="text-xs font-semibold text-slate-500  mt-1 uppercase tracking-wider">forks Earned</p>
         </div>
         
         <!--Stat Block 4: forked repos -->
-         <div class="p-6 hover:bg-yellow-100 transition-colors duration-300  ">
+         <div class="p-6 hover:bg-sky-50 hover:border-sky-300 transition-colors duration-300 border-l border-gray-300 ">
           <p id="forkRepo" class="text-3xl font-extrabold text-slate-800 ">12</p>
           <p class="text-xs font-semibold text-slate-500  mt-1 uppercase tracking-wider">forked repos</p>
         </div>
