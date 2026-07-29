@@ -27,8 +27,9 @@ form.addEventListener("submit",async(e)=>{
        const res=await axios.get(`https://api.github.com/users/${username}`)
        console.log(res.data)
       profile(res.data)
-
-      fetchAllRepos(username)
+      
+      const repoData= await fetchAllRepos(username)  //wait for data that comes from fetchAllRepos func.
+      counts(repoData)
                
     }catch(e){
           console.log("user not found")
@@ -44,11 +45,14 @@ const fetchAllRepos= async(user)=>{
      let allRepo=[];
      let page=1;
     
-     const repo=await axios.get(`https://api.github.com/users/${user}/repos?per_page=100&page=${page}`)
+     
         while(true){
-            allRepo=repo.data;
+            const repoRes=await axios.get(`https://api.github.com/users/${user}/repos?per_page=100&page=${page}`)
+            const repo=repoRes.data
 
-            if(allRepo.length<100){
+            allRepo=allRepo.concat(repo);
+
+            if(repo.length<100){
                 break;
             }else{
                 page++;
@@ -59,7 +63,7 @@ const fetchAllRepos= async(user)=>{
     } 
           
 
-const profile=async(details)=>{
+const profile=(details)=>{
     pimg.src=details.avatar_url;
    pname.innerText=details.name;
    uname.innerText=details.login;
@@ -76,7 +80,12 @@ const profile=async(details)=>{
    email.innerText=details.email? details.email:"Not specified";
    links.href=details.blog?details.blog:"Not specified";
    links.innerText=details.blog?details.blog:"Not specified";
-
-   repoCount.innerText=details.public_repos;
    
 };
+
+const counts=(count)=>{
+     repoCount.innerText=count.length
+     for(c of count){
+        
+     }
+}
