@@ -15,13 +15,16 @@ const following = document.querySelector("#following-count");
 const location = document.querySelector("#location");
 const svg = document.querySelector("#svg");
 const company = document.querySelector("#company");
+const about=document.querySelector("#about")
 const bio = document.querySelector("#bio");
 const email = document.querySelector("#email");
 const links = document.querySelector("#links");
+const socialApp = document.querySelector("#socialApp");
+const socialLink = document.querySelector("#socialLink");
 const repoCount = document.querySelector("#repoCount");
-const starEarn=document.querySelector("#starEarn")
-const forkEarn=document.querySelector("#forkEarn")
-const forkRepo=document.querySelector("#forkRepo")
+const starEarn = document.querySelector("#starEarn");
+const forkEarn = document.querySelector("#forkEarn");
+const forkRepo = document.querySelector("#forkRepo");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -30,7 +33,8 @@ form.addEventListener("submit", async (e) => {
     const res = await axios.get(`https://api.github.com/users/${username}`);
     console.log(res.data);
     profile(res.data);
-
+    const socialData = await social(username);
+    socialAcc(socialData);
     const repoData = await fetchAllRepos(username); //wait for data that comes from fetchAllRepos func.
     counts(repoData);
   } catch (e) {
@@ -65,11 +69,21 @@ const fetchAllRepos = async (user) => {
   return allRepo;
 };
 
+const social = async (u) => {
+  const socialRes = await axios.get(
+    `https://api.github.com/users/${u}/social_accounts`,
+  );
+//   console.log("helloooo socialsss");
+//   console.log(socialRes.data);
+  return socialRes.data;
+};
+
 const profile = (details) => {
   pimg.src = details.avatar_url;
   pname.innerText = details.name;
   uname.innerText = details.login;
   purl.href = details.html_url;
+  purl.target="_blank"
   followers.innerText = details.followers;
   following.innerText = details.following;
   //    if(details.location){
@@ -84,22 +98,56 @@ const profile = (details) => {
   links.innerText = details.blog ? details.blog : "Not specified";
 };
 
+const socialAcc = (accounts) => {
+    const oldSocials=document.querySelectorAll(".dynamic-social")     //querySelectorAll -/   not querySelector
+    //  for(let e of oldSocials){
+    //     e.remove();
+    //  }
+    oldSocials.forEach(element => element.remove());   // or forEach(removeEle)   ,,  const removeEle=element=>element.remove();
+    
+    if(accounts.length===0){
+     const p=document.createElement('p')
+     const pText=document.createElement('p')
+     p.className="font-semibold text-slate-500 dynamic-social "   //dynamic social is a class that i created to select all elements that i want to remove using oldSocials.
+     p.innerText="Social"
+     pText.className="text-indigo-600 hover:underline dynamic-social"
+     pText.innerText="Not specified";
+     about.append(p)
+     about.append(pText)
+    }else{
+        for (let acc of accounts) {
+      const p=document.createElement('p')
+      const a=document.createElement('a')
+      
+      p.className="font-semibold text-slate-500 dynamic-social "
+      p.innerText="Social Profiles"
+      a.className="text-indigo-600 hover:underline dynamic-social "
+      a.href=acc.url;
+      a.innerText=acc.provider;
+      a.target="_blank"
+
+      about.append(p)
+      about.append(a)
+
+  }
+    }
+};
+
 const counts = (count) => {
   repoCount.innerText = count.length;
   let totalStars = 0;
   let totalForks = 0;
   let forked = 0;
 
-  for(let c of count){
-     if(c.fork===true){
-       forked++;
-     }
-     totalForks+=c.forks_count;
-     totalStars+=c.stargazers_count;
+  for (let c of count) {
+    if (c.fork === true) {
+      forked++;
+    }
+    totalForks += c.forks_count;
+    totalStars += c.stargazers_count;
   }
-  
-  starEarn.innerText=totalStars;
-  forkEarn.innerText=totalForks;
-  forkRepo.innerText=forked;
-  
+
+  starEarn.innerText = totalStars;
+  forkEarn.innerText = totalForks;
+  forkRepo.innerText = forked;
 };
