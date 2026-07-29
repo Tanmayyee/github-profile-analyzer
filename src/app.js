@@ -2,90 +2,104 @@
 
 import axios from "axios";
 
-const btn=document.querySelector("#searchbtn")
-const input=document.querySelector("#input")
-const pimg=document.querySelector("#pimg")
-const form=document.querySelector("#searchForm")
-const profileSidebar=document.querySelector("#profile-sidebar")
-const pname=document.querySelector("#pname")
-const uname=document.querySelector("#uname")
-const purl=document.querySelector("#purl")
-const followers=document.querySelector("#followers-count")
-const following=document.querySelector("#following-count")
-const location=document.querySelector("#location")
-const svg=document.querySelector("#svg")
-const company=document.querySelector("#company")
-const bio=document.querySelector("#bio")
-const email=document.querySelector("#email")
-const links=document.querySelector("#links")
-const repoCount=document.querySelector("#repoCount")
+const btn = document.querySelector("#searchbtn");
+const input = document.querySelector("#input");
+const pimg = document.querySelector("#pimg");
+const form = document.querySelector("#searchForm");
+const profileSidebar = document.querySelector("#profile-sidebar");
+const pname = document.querySelector("#pname");
+const uname = document.querySelector("#uname");
+const purl = document.querySelector("#purl");
+const followers = document.querySelector("#followers-count");
+const following = document.querySelector("#following-count");
+const location = document.querySelector("#location");
+const svg = document.querySelector("#svg");
+const company = document.querySelector("#company");
+const bio = document.querySelector("#bio");
+const email = document.querySelector("#email");
+const links = document.querySelector("#links");
+const repoCount = document.querySelector("#repoCount");
+const starEarn=document.querySelector("#starEarn")
+const forkEarn=document.querySelector("#forkEarn")
+const forkRepo=document.querySelector("#forkRepo")
 
-form.addEventListener("submit",async(e)=>{
-    e.preventDefault();
-    const username=input.value.trim();
-    try{
-       const res=await axios.get(`https://api.github.com/users/${username}`)
-       console.log(res.data)
-      profile(res.data)
-      
-      const repoData= await fetchAllRepos(username)  //wait for data that comes from fetchAllRepos func.
-      counts(repoData)
-               
-    }catch(e){
-          console.log("user not found")
-          if (e.response && e.response.status === 404) {
-           alert("User not found! Please check the spelling."); // Or update errorDisplay.innerText
-       } else {
-           alert("Something went wrong. You might be rate limited!");
-       }
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const username = input.value.trim();
+  try {
+    const res = await axios.get(`https://api.github.com/users/${username}`);
+    console.log(res.data);
+    profile(res.data);
+
+    const repoData = await fetchAllRepos(username); //wait for data that comes from fetchAllRepos func.
+    counts(repoData);
+  } catch (e) {
+    console.log("user not found");
+    if (e.response && e.response.status === 404) {
+      alert("User not found! Please check the spelling."); // Or update errorDisplay.innerText
+    } else {
+      alert("Something went wrong. You might be rate limited!");
     }
-})
+  }
+});
 
-const fetchAllRepos= async(user)=>{
-     let allRepo=[];
-     let page=1;
-    
-     
-        while(true){
-            const repoRes=await axios.get(`https://api.github.com/users/${user}/repos?per_page=100&page=${page}`)
-            const repo=repoRes.data
+const fetchAllRepos = async (user) => {
+  let allRepo = [];
+  let page = 1;
 
-            allRepo=allRepo.concat(repo);
+  while (true) {
+    const repoRes = await axios.get(
+      `https://api.github.com/users/${user}/repos?per_page=100&page=${page}`,
+    );
+    const repo = repoRes.data;
 
-            if(repo.length<100){
-                break;
-            }else{
-                page++;
-            }
-        }
-        console.log(allRepo)
-        return allRepo;
-    } 
-          
+    allRepo = allRepo.concat(repo);
 
-const profile=(details)=>{
-    pimg.src=details.avatar_url;
-   pname.innerText=details.name;
-   uname.innerText=details.login;
-   purl.href=details.html_url;
-   followers.innerText=details.followers;
-   following.innerText=details.following;
-//    if(details.location){
-//     location.innerText=details.location;
-//    }else{
-//     location.innerText="Not Specified"
-//    }
-   location.innerText=details.location?details.location:"Not specified";
-   bio.innerText=details.bio?details.bio:"Not specified";
-   email.innerText=details.email? details.email:"Not specified";
-   links.href=details.blog?details.blog:"Not specified";
-   links.innerText=details.blog?details.blog:"Not specified";
-   
+    if (repo.length < 100) {
+      break;
+    } else {
+      page++;
+    }
+  }
+  console.log(allRepo);
+  return allRepo;
 };
 
-const counts=(count)=>{
-     repoCount.innerText=count.length
-     for(c of count){
-        
+const profile = (details) => {
+  pimg.src = details.avatar_url;
+  pname.innerText = details.name;
+  uname.innerText = details.login;
+  purl.href = details.html_url;
+  followers.innerText = details.followers;
+  following.innerText = details.following;
+  //    if(details.location){
+  //     location.innerText=details.location;
+  //    }else{
+  //     location.innerText="Not Specified"
+  //    }
+  location.innerText = details.location ? details.location : "Not specified";
+  bio.innerText = details.bio ? details.bio : "Not specified";
+  email.innerText = details.email ? details.email : "Not specified";
+  links.href = details.blog ? details.blog : "Not specified";
+  links.innerText = details.blog ? details.blog : "Not specified";
+};
+
+const counts = (count) => {
+  repoCount.innerText = count.length;
+  let totalStars = 0;
+  let totalForks = 0;
+  let forked = 0;
+
+  for(let c of count){
+     if(c.fork===true){
+       forked++;
      }
-}
+     totalForks+=c.forks_count;
+     totalStars+=c.stargazers_count;
+  }
+  
+  starEarn.innerText=totalStars;
+  forkEarn.innerText=totalForks;
+  forkRepo.innerText=forked;
+  
+};
