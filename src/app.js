@@ -188,31 +188,37 @@ const counts = (count) => {
 
   let langArray= [
     {name:"JavaScript" , times:js},
-    {name:"JavaScript" , times:ts},
-    {name:"JavaScript" , times:html},
-    {name:"JavaScript" , times:css},
-    {name:"JavaScript" , times:ruby},
-    {name:"JavaScript" , times:go},
-    {name:"JavaScript" , times:cpp},
-    {name:"JavaScript" , times:cSharp},
-    {name:"JavaScript" , times:rust},
-    {name:"JavaScript" , times:kotlin},
-    {name:"JavaScript" , times:py},
-    {name:"JavaScript" , times:java},
-    {name:"JavaScript" , times:shell},
-    {name:"JavaScript" , times:php},
-    {name:"JavaScript" , times:ejs},
-    {name:"JavaScript" , times:j},
-    {name:"JavaScript" , times:js},
-    {name:"JavaScript" , times:js},
+    {name:"TypeScript" , times:ts},
+    {name:"HTML" , times:html},
+    {name:"CSS" , times:css},
+    {name:"Ruby" , times:ruby},
+    {name:"Go" , times:go},
+    {name:"C++" , times:cpp},
+    {name:"C#" , times:cSharp},
+    {name:"Rust" , times:rust},
+    {name:"Kotlin" , times:kotlin},
+    {name:"Python" , times:py},
+    {name:"Java" , times:java},
+    {name:"Shell" , times:shell},
+    {name:"PHP" , times:php},
+    {name:"EJS" , times:ejs},
+    {name:"C" , times:cLang},
+    {name:"Swift" , times:swift},
+    {name:"Others" , times:other},
 
   ]
   
-  let langSorted=langArray.toSorted((a,b)=>b-a);
+  let langSorted=langArray.toSorted((a,b)=>b.times-a.times);
 
-  let langFirst=(langSorted[0]/totalLang)*100;
-  let langSec=(langSorted[1]/totalLang)*100;
-  let langThird=(langSorted[2]/totalLang)*100;
-
-  langF.
+  let langFirst = totalLang > 0 ? ((langSorted[0].times/ totalLang) * 100).toFixed(1) : 0;
+  let langSec = totalLang > 0 ? ((langSorted[0].times / totalLang) * 100).toFixed(1) : 0;
+  let langThird = totalLang > 0 ? ((langSorted[0].times / totalLang) * 100).toFixed(1) : 0;
+  
+  langF.innerText=langArray[0].name;
+  langS.innerText=langArray[1].name;
+  langT.innerText=langArray[2].name;
+  
+  langPerF.innerText=langFirst;
+  langPerS.innerText=langSec;
+  langPerT.innerText=langThird;
 };
