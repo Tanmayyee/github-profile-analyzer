@@ -211,14 +211,21 @@ const counts = (count) => {
   let langSorted=langArray.toSorted((a,b)=>b.times-a.times);
 
   let langFirst = totalLang > 0 ? ((langSorted[0].times/ totalLang) * 100).toFixed(1) : 0;
-  let langSec = totalLang > 0 ? ((langSorted[0].times / totalLang) * 100).toFixed(1) : 0;
-  let langThird = totalLang > 0 ? ((langSorted[0].times / totalLang) * 100).toFixed(1) : 0;
+  let langSec = totalLang > 0 ? ((langSorted[1].times / totalLang) * 100).toFixed(1) : 0;
+  let langThird = totalLang > 0 ? ((langSorted[2].times / totalLang) * 100).toFixed(1) : 0;
   
-  langF.innerText=langArray[0].name;
-  langS.innerText=langArray[1].name;
-  langT.innerText=langArray[2].name;
+  langF.innerText=langSorted[0].name;
+  langS.innerText=langSorted[1].name;
   
-  langPerF.innerText=langFirst;
-  langPerS.innerText=langSec;
-  langPerT.innerText=langThird;
+  
+  langPerF.innerText=langFirst +"%";
+  langPerS.innerText=langSec +"%";
+  if(langThird>0){
+    langPerT.innerText=langThird +"%";
+    langT.innerText=langSorted[2].name;
+  }else{
+    langPerT.innerText="0%"
+    langT.innerText="Others"
+  }
+  
 };
