@@ -15,7 +15,7 @@ const following = document.querySelector("#following-count");
 const location = document.querySelector("#location");
 const svg = document.querySelector("#svg");
 const company = document.querySelector("#company");
-const about=document.querySelector("#about")
+const about = document.querySelector("#about");
 const bio = document.querySelector("#bio");
 const email = document.querySelector("#email");
 const links = document.querySelector("#links");
@@ -25,6 +25,12 @@ const repoCount = document.querySelector("#repoCount");
 const starEarn = document.querySelector("#starEarn");
 const forkEarn = document.querySelector("#forkEarn");
 const forkRepo = document.querySelector("#forkRepo");
+const langPerF = document.querySelector("#langPerF")
+const langPerS =document.querySelector("#langPerS")
+const langPerT = document.querySelector("#langPerT")
+const langF =document.querySelector("#langF")
+const langS=document.querySelector("#langS")
+const langT=document.querySelector("#langT")
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -73,8 +79,8 @@ const social = async (u) => {
   const socialRes = await axios.get(
     `https://api.github.com/users/${u}/social_accounts`,
   );
-//   console.log("helloooo socialsss");
-//   console.log(socialRes.data);
+  //   console.log("helloooo socialsss");
+  //   console.log(socialRes.data);
   return socialRes.data;
 };
 
@@ -83,7 +89,7 @@ const profile = (details) => {
   pname.innerText = details.name;
   uname.innerText = details.login;
   purl.href = details.html_url;
-  purl.target="_blank"
+  purl.target = "_blank";
   followers.innerText = details.followers;
   following.innerText = details.following;
   //    if(details.location){
@@ -99,38 +105,37 @@ const profile = (details) => {
 };
 
 const socialAcc = (accounts) => {
-    const oldSocials=document.querySelectorAll(".dynamic-social")     //querySelectorAll -/   not querySelector
-    //  for(let e of oldSocials){
-    //     e.remove();
-    //  }
-    oldSocials.forEach(element => element.remove());   // or forEach(removeEle)   ,,  const removeEle=element=>element.remove();
-    
-    if(accounts.length===0){
-     const p=document.createElement('p')
-     const pText=document.createElement('p')
-     p.className="font-semibold text-slate-500 dynamic-social "   //dynamic social is a class that i created to select all elements that i want to remove using oldSocials.
-     p.innerText="Social"
-     pText.className="text-indigo-600 hover:underline dynamic-social"
-     pText.innerText="Not specified";
-     about.append(p)
-     about.append(pText)
-    }else{
-        for (let acc of accounts) {
-      const p=document.createElement('p')
-      const a=document.createElement('a')
-      
-      p.className="font-semibold text-slate-500 dynamic-social "
-      p.innerText="Social Profiles"
-      a.className="text-indigo-600 hover:underline dynamic-social "
-      a.href=acc.url;
-      a.innerText=acc.provider;
-      a.target="_blank"
+  const oldSocials = document.querySelectorAll(".dynamic-social"); //querySelectorAll -/   not querySelector
+  //  for(let e of oldSocials){
+  //     e.remove();
+  //  }
+  oldSocials.forEach((element) => element.remove()); // or forEach(removeEle)   ,,  const removeEle=element=>element.remove();
 
-      about.append(p)
-      about.append(a)
+  if (accounts.length === 0) {
+    const p = document.createElement("p");
+    const pText = document.createElement("p");
+    p.className = "font-semibold text-slate-500 dynamic-social "; //dynamic social is a class that i created to select all elements that i want to remove using oldSocials.
+    p.innerText = "Social";
+    pText.className = "text-indigo-600 hover:underline dynamic-social";
+    pText.innerText = "Not specified";
+    about.append(p);
+    about.append(pText);
+  } else {
+    for (let acc of accounts) {
+      const p = document.createElement("p");
+      const a = document.createElement("a");
 
-  }
+      p.className = "font-semibold text-slate-500 dynamic-social ";
+      p.innerText = "Social Profiles";
+      a.className = "text-indigo-600 hover:underline dynamic-social ";
+      a.href = acc.url;
+      a.innerText = acc.provider;
+      a.target = "_blank";
+
+      about.append(p);
+      about.append(a);
     }
+  }
 };
 
 const counts = (count) => {
@@ -139,15 +144,75 @@ const counts = (count) => {
   let totalForks = 0;
   let forked = 0;
 
+  let js = 0, ts = 0, html = 0, css = 0, ejs = 0, py = 0, java = 0, cSharp = 0, cpp = 0, go = 0, php = 0, cLang = 0, ruby = 0, shell = 0, rust = 0, kotlin = 0, swift = 0, other = 0;
+
   for (let c of count) {
     if (c.fork === true) {
       forked++;
     }
     totalForks += c.forks_count;
     totalStars += c.stargazers_count;
+    
+    switch (c.language) {
+      case "JavaScript": js += 1; break;
+      case "TypeScript": ts += 1; break;
+      case "HTML": html += 1; break;
+      case "CSS": css += 1; break;
+      case "EJS": ejs += 1; break;
+      case "Python": py += 1; break;
+      case "Java": java += 1; break; 
+      case "C#": cSharp += 1; break;
+      case "C++": cpp += 1; break;
+      case "Go": go += 1; break;
+      case "PHP": php += 1; break;
+      case "C": cLang += 1; break;
+      case "Ruby": ruby += 1; break;
+      case "Shell": shell += 1; break;
+      case "Rust": rust += 1; break;
+      case "Kotlin": kotlin += 1; break;
+      case "Swift": swift += 1; break;
+      
+      default :
+      if(c.language !==null){
+          other +=1;
+      }
+    
+    }
   }
 
   starEarn.innerText = totalStars;
   forkEarn.innerText = totalForks;
   forkRepo.innerText = forked;
+
+  let totalLang=js+ts+html+css+ruby+go+cpp+cSharp+rust+kotlin+py+java+shell+php+ejs+cLang+swift+other
+
+  let langArray= [
+    {name:"JavaScript" , times:js},
+    {name:"JavaScript" , times:ts},
+    {name:"JavaScript" , times:html},
+    {name:"JavaScript" , times:css},
+    {name:"JavaScript" , times:ruby},
+    {name:"JavaScript" , times:go},
+    {name:"JavaScript" , times:cpp},
+    {name:"JavaScript" , times:cSharp},
+    {name:"JavaScript" , times:rust},
+    {name:"JavaScript" , times:kotlin},
+    {name:"JavaScript" , times:py},
+    {name:"JavaScript" , times:java},
+    {name:"JavaScript" , times:shell},
+    {name:"JavaScript" , times:php},
+    {name:"JavaScript" , times:ejs},
+    {name:"JavaScript" , times:j},
+    {name:"JavaScript" , times:js},
+    {name:"JavaScript" , times:js},
+
+  ]
+  
+  let langSorted=langArray.toSorted((a,b)=>b-a);
+
+  let langFirst=(langSorted[0]/totalLang)*100;
+  let langSec=(langSorted[1]/totalLang)*100;
+  let langThird=(langSorted[2]/totalLang)*100;
+
+  langF.
 };
