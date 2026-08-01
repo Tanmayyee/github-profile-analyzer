@@ -262,47 +262,48 @@ const counts = (count) => {
 
 
 //function for latest activity  and top repos
-const activeStar = (data) => {
-  // 1. Sort by stars and dates (added new Date() for correct date sorting)
-  const starSort = data.toSorted((a, b) => b.stargazers_count - a.stargazers_count);
-  const activeSort = data.toSorted((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
 
-  // 2. Hamein sirf top 3 chahiye
-  const top3Recent = activeSort.slice(0, 3);
-  const recentContainer = document.getElementById('recent');
+const activeStar=async (data)=>{
+   let starSort=data.toSorted((a,b)=>b.stargazers_count - a.stargazers_count);
+   let activeSort=data.toSorted((a,b)=>b.updated_at - a.updated_at);
 
-  // 3. Array ko HTML string mein convert karna
-  const cardsHTML = top3Recent.map(repo => {
+  //  console.log(activeSort.slice(0,4))
+  //  console.log("to check ")
+  //  console.log(starSort.slice(0,2))
+  
+  let top3Star= starSort.slice(0,3)
+  let top3Active= activeSort.slice(0,3)
+
+  //latest activity 
+  const recentCard= top3Star.map(repo=>{
     
-    // Date ko thoda clean format de dete hain (e.g., "Aug 1, 2026")
-    const dateFormatted = new Date(repo.updated_at).toLocaleDateString('en-US', {
-      month: 'short', day: 'numeric', year: 'numeric'
-    });
+    const dateFormatted = new Date(repo.updated_at).toLocaleString("en-IN");    // Convert the API date and time into a readable format
 
-    // Backticks ke andar exact tera HTML structure daal diya hai
-    // aur variables ko ${} ke saath inject kar diya hai
-    return `
-      <li>
-        <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer"
-          class="group flex items-center justify-between p-3 border border-gray-200 rounded-lg hover:bg-slate-50 hover:border-blue-300 transition-all cursor-pointer">
-          
-          <div class="flex flex-col gap-1">
-            <span class="font-bold text-slate-800 group-hover:text-blue-600 transition-colors">
-              ${repo.name}
-            </span>
-            <span class="text-xs text-gray-500 font-medium">Updated on ${dateFormatted}</span>
-          </div>
+    return`<li>
+           
+            <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer"
+              class="group flex items-center justify-between p-3 border border-gray-200 rounded-lg hover:bg-slate-50 hover:border-blue-300 transition-all cursor-pointer">
 
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-            stroke="currentColor" class="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors">
-            <path stroke-linecap="round" stroke-linejoin="round"
-              d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-          </svg>
-        </a>
-      </li>
-    `;
-  }).join(''); // Array ki saari strings ko jod kar ek single string bana dega
+              
+              <div class="flex flex-col gap-1">
+                <span
+                  class="font-bold text-slate-800 group-hover:text-blue-600 transition-colors">${repo.name}</span>
+                <span class="text-xs text-gray-500 font-medium">${dateFormatted}</span>
+              </div>
 
-  // 4. Ek hi baar mein container ke andar daal do (Performance best rahegi)
-  recentContainer.innerHTML = cardsHTML;
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                stroke="currentColor" class="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+              </svg>
+
+            </a>
+          </li> `
+  }).join("")
+
+  recent.innerHTML=recentCard
+
+
+  //top repos
+  const 
 }
