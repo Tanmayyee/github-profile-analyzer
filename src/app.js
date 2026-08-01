@@ -25,17 +25,17 @@ const repoCount = document.querySelector("#repoCount");
 const starEarn = document.querySelector("#starEarn");
 const forkEarn = document.querySelector("#forkEarn");
 const forkRepo = document.querySelector("#forkRepo");
-const langPerF = document.querySelector("#langPerF")
-const langPerS =document.querySelector("#langPerS")
-const langPerT = document.querySelector("#langPerT")
-const langF =document.querySelector("#langF")
-const langS=document.querySelector("#langS")
-const langT=document.querySelector("#langT")
-const barF=document.querySelector("#barF")
-const barS=document.querySelector("#barS")
-const barT=document.querySelector("#barT")
-const recent=document.querySelector("#recent")
-const topRepo=document.querySelector("#topRepo")
+const langPerF = document.querySelector("#langPerF");
+const langPerS = document.querySelector("#langPerS");
+const langPerT = document.querySelector("#langPerT");
+const langF = document.querySelector("#langF");
+const langS = document.querySelector("#langS");
+const langT = document.querySelector("#langT");
+const barF = document.querySelector("#barF");
+const barS = document.querySelector("#barS");
+const barT = document.querySelector("#barT");
+const recentContainer = document.querySelector("#recent");
+const topRepoContainer = document.querySelector("#topRepo");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -47,11 +47,10 @@ form.addEventListener("submit", async (e) => {
 
     const socialData = await social(username);
     socialAcc(socialData);
-   
-    const repoData = await fetchAllRepos(username); //wait for data that comes from fetchAllRepos func.
-    counts(repoData); 
-    activeStar(repoData);
 
+    const repoData = await fetchAllRepos(username); //wait for data that comes from fetchAllRepos func.
+    counts(repoData);
+    activeStar(repoData);
   } catch (e) {
     console.log("user not found");
     if (e.response && e.response.status === 404) {
@@ -153,7 +152,24 @@ const counts = (count) => {
   let totalForks = 0;
   let forked = 0;
 
-  let js = 0, ts = 0, html = 0, css = 0, ejs = 0, py = 0, java = 0, cSharp = 0, cpp = 0, go = 0, php = 0, cLang = 0, ruby = 0, shell = 0, rust = 0, kotlin = 0, swift = 0, other = 0;
+  let js = 0,
+    ts = 0,
+    html = 0,
+    css = 0,
+    ejs = 0,
+    py = 0,
+    java = 0,
+    cSharp = 0,
+    cpp = 0,
+    go = 0,
+    php = 0,
+    cLang = 0,
+    ruby = 0,
+    shell = 0,
+    rust = 0,
+    kotlin = 0,
+    swift = 0,
+    other = 0;
 
   for (let c of count) {
     if (c.fork === true) {
@@ -161,31 +177,64 @@ const counts = (count) => {
     }
     totalForks += c.forks_count;
     totalStars += c.stargazers_count;
-    
+
     switch (c.language) {
-      case "JavaScript": js += 1; break;
-      case "TypeScript": ts += 1; break;
-      case "HTML": html += 1; break;
-      case "CSS": css += 1; break;
-      case "EJS": ejs += 1; break;
-      case "Python": py += 1; break;
-      case "Java": java += 1; break; 
-      case "C#": cSharp += 1; break;
-      case "C++": cpp += 1; break;
-      case "Go": go += 1; break;
-      case "PHP": php += 1; break;
-      case "C": cLang += 1; break;
-      case "Ruby": ruby += 1; break;
-      case "Shell": shell += 1; break;
-      case "Rust": rust += 1; break;
-      case "Kotlin": kotlin += 1; break;
-      case "Swift": swift += 1; break;
-      
-      default :
-      if(c.language !==null){
-          other +=1;
-      }
-    
+      case "JavaScript":
+        js += 1;
+        break;
+      case "TypeScript":
+        ts += 1;
+        break;
+      case "HTML":
+        html += 1;
+        break;
+      case "CSS":
+        css += 1;
+        break;
+      case "EJS":
+        ejs += 1;
+        break;
+      case "Python":
+        py += 1;
+        break;
+      case "Java":
+        java += 1;
+        break;
+      case "C#":
+        cSharp += 1;
+        break;
+      case "C++":
+        cpp += 1;
+        break;
+      case "Go":
+        go += 1;
+        break;
+      case "PHP":
+        php += 1;
+        break;
+      case "C":
+        cLang += 1;
+        break;
+      case "Ruby":
+        ruby += 1;
+        break;
+      case "Shell":
+        shell += 1;
+        break;
+      case "Rust":
+        rust += 1;
+        break;
+      case "Kotlin":
+        kotlin += 1;
+        break;
+      case "Swift":
+        swift += 1;
+        break;
+
+      default:
+        if (c.language !== null) {
+          other += 1;
+        }
     }
   }
 
@@ -193,58 +242,82 @@ const counts = (count) => {
   forkEarn.innerText = totalForks;
   forkRepo.innerText = forked;
 
-  let totalLang=js+ts+html+css+ruby+go+cpp+cSharp+rust+kotlin+py+java+shell+php+ejs+cLang+swift+other
+  let totalLang =
+    js +
+    ts +
+    html +
+    css +
+    ruby +
+    go +
+    cpp +
+    cSharp +
+    rust +
+    kotlin +
+    py +
+    java +
+    shell +
+    php +
+    ejs +
+    cLang +
+    swift +
+    other;
 
-  let langArray= [
-    {name:"JavaScript" , times:js},
-    {name:"TypeScript" , times:ts},
-    {name:"HTML" , times:html},
-    {name:"CSS" , times:css},
-    {name:"Ruby" , times:ruby},
-    {name:"Go" , times:go},
-    {name:"C++" , times:cpp},
-    {name:"C#" , times:cSharp},
-    {name:"Rust" , times:rust},
-    {name:"Kotlin" , times:kotlin},
-    {name:"Python" , times:py},
-    {name:"Java" , times:java},
-    {name:"Shell" , times:shell},
-    {name:"PHP" , times:php},
-    {name:"EJS" , times:ejs},
-    {name:"C" , times:cLang},
-    {name:"Swift" , times:swift},
-    {name:"Others" , times:other},
+  let langArray = [
+    { name: "JavaScript", times: js },
+    { name: "TypeScript", times: ts },
+    { name: "HTML", times: html },
+    { name: "CSS", times: css },
+    { name: "Ruby", times: ruby },
+    { name: "Go", times: go },
+    { name: "C++", times: cpp },
+    { name: "C#", times: cSharp },
+    { name: "Rust", times: rust },
+    { name: "Kotlin", times: kotlin },
+    { name: "Python", times: py },
+    { name: "Java", times: java },
+    { name: "Shell", times: shell },
+    { name: "PHP", times: php },
+    { name: "EJS", times: ejs },
+    { name: "C", times: cLang },
+    { name: "Swift", times: swift },
+    { name: "Others", times: other },
+  ];
 
-  ]
-  
-  let langSorted=langArray.toSorted((a,b)=>b.times-a.times);
+  let langSorted = langArray.toSorted((a, b) => b.times - a.times);
 
-  let langFirst = totalLang > 0 ? ((langSorted[0].times/ totalLang) * 100).toFixed(1) : 0;
-  let langSec = totalLang > 0 ? ((langSorted[1].times / totalLang) * 100).toFixed(1) : 0;
-  let langThird = totalLang > 0 ? ((langSorted[2].times / totalLang) * 100).toFixed(1) : 0;
-  
-  langF.innerText=langSorted[0].name;
-  langS.innerText=langSorted[1].name;
-  
-  langPerF.innerText=langFirst +"%";
-  langPerS.innerText=langSec +"%";
-  if(langThird>0){
-    langPerT.innerText=langThird +"%";
-    langT.innerText=langSorted[2].name;
-  }else{
-    langPerT.innerText="0%"
-    langT.innerText="Others"
+  let langFirst =
+    totalLang > 0 ? ((langSorted[0].times / totalLang) * 100).toFixed(1) : 0;
+  let langSec =
+    totalLang > 0 ? ((langSorted[1].times / totalLang) * 100).toFixed(1) : 0;
+  let langThird =
+    totalLang > 0 ? ((langSorted[2].times / totalLang) * 100).toFixed(1) : 0;
+
+  langF.innerText = langSorted[0].name;
+  langS.innerText = langSorted[1].name;
+
+  langPerF.innerText = langFirst + "%";
+  langPerS.innerText = langSec + "%";
+  if (langThird > 0) {
+    langPerT.innerText = langThird + "%";
+    langT.innerText = langSorted[2].name;
+  } else {
+    langPerT.innerText = "0%";
+    langT.innerText = "Others";
   }
-  
+
   // for bar ------------------------------------
 
-  let top3Total = langSorted[0].times + langSorted[1].times + langSorted[2].times;
+  let top3Total =
+    langSorted[0].times + langSorted[1].times + langSorted[2].times;
 
-  let barWidthF = top3Total > 0 ? ((langSorted[0].times / top3Total) * 100).toFixed(1) : 0;
-  let barWidthS = top3Total > 0 ? ((langSorted[1].times / top3Total) * 100).toFixed(1) : 0;
-  let barWidthT = top3Total > 0 ? ((langSorted[2].times / top3Total) * 100).toFixed(1) : 0;
-  
- barF.style.width = barWidthF + "%";
+  let barWidthF =
+    top3Total > 0 ? ((langSorted[0].times / top3Total) * 100).toFixed(1) : 0;
+  let barWidthS =
+    top3Total > 0 ? ((langSorted[1].times / top3Total) * 100).toFixed(1) : 0;
+  let barWidthT =
+    top3Total > 0 ? ((langSorted[2].times / top3Total) * 100).toFixed(1) : 0;
+
+  barF.style.width = barWidthF + "%";
   barF.title = langSorted[0].name;
 
   barS.style.width = barWidthS + "%";
@@ -257,29 +330,32 @@ const counts = (count) => {
     barT.style.width = "0%";
     barT.title = "";
   }
-  
 };
-
 
 //function for latest activity  and top repos
 
-const activeStar=async (data)=>{
-   let starSort=data.toSorted((a,b)=>b.stargazers_count - a.stargazers_count);
-   let activeSort=data.toSorted((a,b)=>b.updated_at - a.updated_at);
+const activeStar = async (data) => {
+  let starSort = data.toSorted(
+    (a, b) => b.stargazers_count - a.stargazers_count,
+  );
+  let activeSort = data.toSorted((a, b) => b.updated_at - a.updated_at);
 
   //  console.log(activeSort.slice(0,4))
   //  console.log("to check ")
   //  console.log(starSort.slice(0,2))
-  
-  let top3Star= starSort.slice(0,3)
-  let top3Active= activeSort.slice(0,3)
 
-  //latest activity 
-  const recentCard= top3Star.map(repo=>{
-    
-    const dateFormatted = new Date(repo.updated_at).toLocaleString("en-IN");    // Convert the API date and time into a readable format
+  let top3Star = starSort.slice(0, 3);
+  let top3Active = activeSort.slice(0, 3);
 
-    return`<li>
+  // Use .map() to convert each repository object into an HTML string,
+  // then .join("") merges all HTML strings into one so it can be inserted into the DOM.
+  //I use map() to convert each repository object into an HTML template string. Since map() returns an array of strings, I use join("") to merge them into a single HTML string before setting innerHTML
+
+  //latest activity
+  const recentCard = top3Star.map((repo) => {
+      const dateFormatted = new Date(repo.updated_at).toLocaleString(undefined,{dateStyle:"medium",timeStyle:"short"}); // Convert the API date and time into a readable format
+
+      return `<li>
            
             <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer"
               class="group flex items-center justify-between p-3 border border-gray-200 rounded-lg hover:bg-slate-50 hover:border-blue-300 transition-all cursor-pointer">
@@ -298,12 +374,35 @@ const activeStar=async (data)=>{
               </svg>
 
             </a>
-          </li> `
-  }).join("")
+          </li> `;
+    })
+    .join("");
 
-  recent.innerHTML=recentCard
-
+  recentContainer.innerHTML = recentCard;
 
   //top repos
-  const 
-}
+  const topRepoCard = top3Active.map(repo => {
+    
+    return`<li>
+            <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer"
+              class="group flex items-center justify-between p-3 border border-gray-200 rounded-lg hover:bg-slate-50 hover:border-blue-300 transition-all cursor-pointer">
+
+              <div class="flex flex-col gap-1">
+                <span
+                  class="font-bold text-slate-800 group-hover:text-blue-600 transition-colors">${repo.name}</span>
+                <span class="text-xs text-gray-500 font-medium">⭐ ${repo.stargazers_count} stars</span>
+              </div>
+
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                stroke="currentColor" class="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+              </svg>
+
+            </a>
+          </li>`
+  }).join("");
+
+  topRepoContainer.innerHTML=topRepoCard
+
+};
