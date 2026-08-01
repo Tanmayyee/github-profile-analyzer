@@ -27,13 +27,12 @@
 
     <!-- Center Column (Responsive font & text wrap) -->
     <h1 class="text-lg sm:text-2xl md:text-3xl font-bold font-press text-center leading-tight">
-      GitHub Profile<span class="inline sm:block md:inline"> Analyzer</span>
+      GitHub Profile<span class="inline sm:block md:inline text-indigo-300 "> Analyzer</span>
     </h1>
 
     <!-- Right Column (Pushed to the right) -->
     <div class="flex justify-end">
-      <a href="https://github.com/Tanmayyee" target="_blank" rel="noopener noreferrer"
-        class="text-sm sm:text-base font-bold hover:text-amber-200 transition-colors">
+     <a href="https://github.com/Tanmayyee" target="_blank" rel="noopener noreferrer" class="text-sm sm:text-base font-bold bg-white/20 backdrop-blur-md px-4 py-2 rounded-full hover:bg-white/40 hover:text-indigo-900 transition-all shadow-md">
         GitHub
       </a>
     </div>
@@ -123,20 +122,22 @@
         <!-- Details Card -->
         <div
           class="p-8 bg-white/95 border-2 rounded-2xl shadow-gray-800 overflow-hidden shadow-md transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
-          <h3 class="text-xl font-bold text-slate-800 mb-6 border-b pb-2">About</h3>
+          <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+            <span class="w-8 h-1 bg-indigo-500 rounded-full"></span> About
+          </h3>
 
           <!-- Grid aligns the labels and content perfectly -->
           <div id="about" class="grid grid-cols-[100px_1fr] sm:grid-cols-[120px_1fr] gap-y-4 text-slate-700">
 
             <p class="font-semibold text-slate-500">Bio</p>
-            <p id="bio" class="leading-relaxed">Full Stack Developer | React.js • Node.js • Express • MongoDB • DSA</p>
+            <p id="bio" class="text-slate-600 font-medium leading-relaxed">Full Stack Developer | React.js • Node.js • Express • MongoDB • DSA</p>
 
             <p class="font-semibold text-slate-500">Email</p>
-            <p><a href="mailto:tanmayjohri@gmail.com" id="email"
-                class="hover:text-indigo-600 transition-colors">tanmayjohri@gmail.com</a></p>
+            <p><a href="mailto:tanmayjohri@gmail.com" id="email" class="text-indigo-600 font-semibold
+               hover:text-indigo-800 transition-colors">tanmayjohri@gmail.com</a></p>
 
             <p class="font-semibold text-slate-500">Links</p>
-            <p><a id="links" href="#" class="text-indigo-600 hover:underline">linkedin.com/in/tanmayjohri</a></p>
+            <p><a id="links" href="#" class="text-indigo-600 font-semibold hover:text-indigo-800 hover:underline transition-colors">linkedin.com/in/tanmayjohri</a></p>
 
             <!-- <p  id="socialApp" class="font-semibold text-slate-500">Social</p>
             <p><a href="#" id="socialLink" class="text-indigo-600 hover:underline">Check Out</a></p> -->
@@ -147,7 +148,9 @@
         <!-- Language used card -->
         <div
           class="p-8 bg-white/95 border-2 rounded-2xl shadow-gray-800 overflow-hidden shadow-md flex flex-col justify-center transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
-          <h3 class="text-xl font-bold text-slate-800 mb-2">Languages Used</h3>
+          <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+              <span class="w-8 h-1 bg-amber-400 rounded-full"></span> Languages Used
+            </h3>
           <p class="text-xs font-medium text-slate-500 mb-6 border-b pb-2">Based on self-created repositories.</p>
 
           <!-- Progress Bar Chart -->
@@ -229,55 +232,29 @@
     <!--######################################################## Repositories ################################################################### -->
 
     <section class="max-w-6xl mx-auto px-4 py-2 mt-2 mb-10 grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div class="bg-white  border-2 rounded-2xl shadow-gray-800 overflow-hidden shadow-md p-4">
-        <h2 class="text-xl font-bold text-slate-800 mb-6 border-b pb-2">Latest Activity</h2>
+      <div class="bg-white  border-2 rounded-2xl shadow-gray-800 overflow-hidden shadow-md p-4 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
+        <h2 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+          <span class="w-3 h-3 bg-rose-500 rounded-full animate-pulse"></span> Latest Activity
+        </h2>
 
         <ul id="recent" class="space-y-3">
-          <!-- <li>
-           target="_blank" handles the blank window, rel="noopener noreferrer" prevents reverse tabnabbing and privacy leaks
-            <a href="https://github.com/your-repo-link" target="_blank" rel="noopener noreferrer"
-              class="group flex items-center justify-between p-3 border border-gray-200 rounded-lg hover:bg-slate-50 hover:border-blue-300 transition-all cursor-pointer">
-
-              
-              <div class="flex flex-col gap-1">
-                <span
-                  class="font-bold text-slate-800 group-hover:text-blue-600 transition-colors">my-awesome-project</span>
-                <span class="text-xs text-gray-500 font-medium">Updated 2 days ago</span>
-              </div>
-
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                stroke="currentColor" class="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-              </svg>
-
-            </a>
-          </li> -->
+          
+           <!-- target="_blank" handles the blank window, rel="noopener noreferrer" prevents reverse tabnabbing and privacy leaks -->
+            
+           <!-- recentContainer.innerHTML=recentCard -->
+            
         </ul>
       </div>
 
-      <div class="bg-white  border-2 rounded-2xl shadow-gray-800 overflow-hidden shadow-md p-4">
-        <h2 class="text-xl font-bold text-slate-800 mb-6 border-b pb-2">Top Repositories</h2>
+      <div class="bg-white  border-2 rounded-2xl shadow-gray-800 overflow-hidden shadow-md p-4 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
+       <h2 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+          <span class="w-3 h-3 bg-yellow-400 rounded-full"></span> Top Repositories
+        </h2>
 
         <ul id="topRepo" class="space-y-3">
-          <!-- <li>
-            <a href="https://github.com/your-repo-link" target="_blank" rel="noopener noreferrer"
-              class="group flex items-center justify-between p-3 border border-gray-200 rounded-lg hover:bg-slate-50 hover:border-blue-300 transition-all cursor-pointer">
 
-              <div class="flex flex-col gap-1">
-                <span
-                  class="font-bold text-slate-800 group-hover:text-blue-600 transition-colors">my-awesome-project</span>
-                <span class="text-xs text-gray-500 font-medium">⭐ 12 Stars</span>
-              </div>
-
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                stroke="currentColor" class="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-              </svg>
-
-            </a>
-          </li> -->
+          <!-- topRepoContainer.innerHTML=topRepoCard -->
+            
         </ul>
       </div>
     </section>

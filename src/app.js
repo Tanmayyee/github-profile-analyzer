@@ -124,7 +124,7 @@ const socialAcc = (accounts) => {
     const pText = document.createElement("p");
     p.className = "font-semibold text-slate-500 dynamic-social "; //dynamic social is a class that i created to select all elements that i want to remove using oldSocials.
     p.innerText = "Social";
-    pText.className = "text-indigo-600 hover:underline dynamic-social";
+    pText.className = "text-indigo-600 font-semibold hover:text-indigo-800 transition-colors dynamic-social";
     pText.innerText = "Not specified";
     about.append(p);
     about.append(pText);
@@ -135,7 +135,7 @@ const socialAcc = (accounts) => {
 
       p.className = "font-semibold text-slate-500 dynamic-social ";
       p.innerText = "Social Profiles";
-      a.className = "text-indigo-600 hover:underline dynamic-social ";
+      a.className = "text-indigo-600 font-semibold hover:text-indigo-800 transition-colors dynamic-social ";
       a.href = acc.url;
       a.innerText = acc.provider;
       a.target = "_blank";
@@ -349,7 +349,8 @@ const activeStar = async (data) => {
 
   // Use .map() to convert each repository object into an HTML string,
   // then .join("") merges all HTML strings into one so it can be inserted into the DOM.
-  //I use map() to convert each repository object into an HTML template string. Since map() returns an array of strings, I use join("") to merge them into a single HTML string before setting innerHTML
+  //I use map() to convert each repository object into an HTML template string. Since map() returns an array of strings,
+  //  I use join("") to merge them into a single HTML string before setting innerHTML
 
   //latest activity
   const recentCard = top3Star.map((repo) => {
@@ -375,8 +376,7 @@ const activeStar = async (data) => {
 
             </a>
           </li> `;
-    })
-    .join("");
+    }).join("");   //.map() converts each item into an HTML string , but becasue that creates an array of separate pieces , we use .join("") to merge them all into one single string so it can be easily inserted into the page.
 
   recentContainer.innerHTML = recentCard;
 
