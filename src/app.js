@@ -334,18 +334,22 @@ const counts = (count) => {
 
 //function for latest activity  and top repos
 
-const activeStar = async (data) => {
-  let starSort = data.toSorted(
-    (a, b) => b.stargazers_count - a.stargazers_count,
-  );
-  let activeSort = data.toSorted((a, b) => b.updated_at - a.updated_at);
+const activeStar = (data) => {
+
+  const originalRepos = data.filter(repo => repo.fork === false);
+
+  //'updated_at' is a string from the API (e.g., "2023-10-24T..."). 
+  // We must wrap it in new Date() to convert it into a Date object before subtracting for sorting.
+  let activeSort = data.toSorted((a, b) => new Date (b.updated_at) - new Date (a.updated_at));
+
+  let starSort = originalRepos.toSorted((a, b) => b.stargazers_count - a.stargazers_count, );
 
   //  console.log(activeSort.slice(0,4))
   //  console.log("to check ")
   //  console.log(starSort.slice(0,2))
-
-  let top3Star = starSort.slice(0, 3);
+  
   let top3Active = activeSort.slice(0, 3);
+  let top3Star = starSort.slice(0, 3);
 
   // Use .map() to convert each repository object into an HTML string,
   // then .join("") merges all HTML strings into one so it can be inserted into the DOM.
@@ -353,7 +357,7 @@ const activeStar = async (data) => {
   //  I use join("") to merge them into a single HTML string before setting innerHTML
 
   //latest activity
-  const recentCard = top3Star.map((repo) => {
+  const recentCard = top3Active.map((repo) => {
       const dateFormatted = new Date(repo.updated_at).toLocaleString(undefined,{dateStyle:"medium",timeStyle:"short"}); // Convert the API date and time into a readable format
 
       return `<li>
@@ -379,9 +383,17 @@ const activeStar = async (data) => {
     }).join("");   //.map() converts each item into an HTML string , but becasue that creates an array of separate pieces , we use .join("") to merge them all into one single string so it can be easily inserted into the page.
 
   recentContainer.innerHTML = recentCard;
+   
+  let topRepoCard = "";       //declare before if else loops to avoid scope error
 
-  //top repos
-  const topRepoCard = top3Active.map(repo => {
+  if(top3Star.length === 0 ||top3Star[0].stargazers_count===0){
+    topRepoCard=`<li class="flex flex-col items-center justify-center p-5 border border-dashed border-gray-300 rounded-lg bg-gray-50/50">
+        <span class="text-xl mb-1">🌟</span>
+        <span class="font-medium text-slate-600 text-sm">No starred repositories yet</span>
+        <span class="text-xs text-gray-400 mt-1">Keep building and sharing your work!</span>
+      </li>`
+    
+  }else{ topRepoCard = top3Star.map(repo => {
     
     return`<li>
             <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer"
@@ -403,6 +415,8 @@ const activeStar = async (data) => {
           </li>`
   }).join("");
 
+}
+  
   topRepoContainer.innerHTML=topRepoCard
 
 };
