@@ -36,6 +36,7 @@ const barS = document.querySelector("#barS");
 const barT = document.querySelector("#barT");
 const recentContainer = document.querySelector("#recent");
 const topRepoContainer = document.querySelector("#topRepo");
+const repoContainer=document.querySelector("#repoContainer")
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -51,6 +52,8 @@ form.addEventListener("submit", async (e) => {
     const repoData = await fetchAllRepos(username); //wait for data that comes from fetchAllRepos func.
     counts(repoData);
     activeStar(repoData);
+    allRepo(repoData);
+
   } catch (e) {
     console.log("user not found");
     if (e.response && e.response.status === 404) {
@@ -152,24 +155,7 @@ const counts = (count) => {
   let totalForks = 0;
   let forked = 0;
 
-  let js = 0,
-    ts = 0,
-    html = 0,
-    css = 0,
-    ejs = 0,
-    py = 0,
-    java = 0,
-    cSharp = 0,
-    cpp = 0,
-    go = 0,
-    php = 0,
-    cLang = 0,
-    ruby = 0,
-    shell = 0,
-    rust = 0,
-    kotlin = 0,
-    swift = 0,
-    other = 0;
+  let js = 0, ts = 0, html = 0, css = 0, ejs = 0, py = 0, java = 0, cSharp = 0, cpp = 0, go = 0, php = 0, cLang = 0, ruby = 0, shell = 0, rust = 0, kotlin = 0, swift = 0, other = 0;
 
   for (let c of count) {
     if (c.fork === true) {
@@ -179,57 +165,23 @@ const counts = (count) => {
     totalStars += c.stargazers_count;
 
     switch (c.language) {
-      case "JavaScript":
-        js += 1;
-        break;
-      case "TypeScript":
-        ts += 1;
-        break;
-      case "HTML":
-        html += 1;
-        break;
-      case "CSS":
-        css += 1;
-        break;
-      case "EJS":
-        ejs += 1;
-        break;
-      case "Python":
-        py += 1;
-        break;
-      case "Java":
-        java += 1;
-        break;
-      case "C#":
-        cSharp += 1;
-        break;
-      case "C++":
-        cpp += 1;
-        break;
-      case "Go":
-        go += 1;
-        break;
-      case "PHP":
-        php += 1;
-        break;
-      case "C":
-        cLang += 1;
-        break;
-      case "Ruby":
-        ruby += 1;
-        break;
-      case "Shell":
-        shell += 1;
-        break;
-      case "Rust":
-        rust += 1;
-        break;
-      case "Kotlin":
-        kotlin += 1;
-        break;
-      case "Swift":
-        swift += 1;
-        break;
+      case "JavaScript": js += 1; break;
+      case "TypeScript": ts += 1; break;
+      case "HTML": html += 1; break;
+      case "CSS": css += 1; break;
+      case "EJS": ejs += 1; break;
+      case "Python": py += 1; break;
+      case "Java": java += 1; break;
+      case "C#": cSharp += 1; break;
+      case "C++": cpp += 1; break;
+      case "Go": go += 1; break;
+      case "PHP": php += 1; break;
+      case "C": cLang += 1; break;
+      case "Ruby": ruby += 1; break;
+      case "Shell": shell += 1; break;
+      case "Rust": rust += 1; break;
+      case "Kotlin": kotlin += 1; break;
+      case "Swift": swift += 1; break;
 
       default:
         if (c.language !== null) {
@@ -242,25 +194,7 @@ const counts = (count) => {
   forkEarn.innerText = totalForks;
   forkRepo.innerText = forked;
 
-  let totalLang =
-    js +
-    ts +
-    html +
-    css +
-    ruby +
-    go +
-    cpp +
-    cSharp +
-    rust +
-    kotlin +
-    py +
-    java +
-    shell +
-    php +
-    ejs +
-    cLang +
-    swift +
-    other;
+  let totalLang = js + ts + html + css + ruby + go + cpp + cSharp + rust + kotlin + py + java + shell + php + ejs + cLang + swift + other;
 
   let langArray = [
     { name: "JavaScript", times: js },
@@ -415,8 +349,39 @@ const activeStar = (data) => {
           </li>`
   }).join("");
 
-}
+ }
   
   topRepoContainer.innerHTML=topRepoCard
 
 };
+
+
+//################################################################################################################
+
+const allRepo= (data)=>{
+    
+  const printRepo=data.map(repo=>{
+         return`<a href="#">
+  <div class="bg-white border-2 rounded-2xl shadow-gray-800 overflow-hidden shadow-md p-4 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
+    
+    <!-- Sirf is div ko flex banaya hai, ml-47 hataya hai, aur tag me shrink-0 add kiya hai -->
+    <div class="flex justify-between items-start gap-2">
+      <span class="font-bold text-2xl text-[#116ace]">${repo.name}</span>
+      <span class="shrink-0 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border border-gray-300 text-gray-600 bg-gray-50">
+        Public
+      </span>
+    </div>
+
+    <p class="mt-2"><span class="text-slate-600 font-medium leading-relaxed ">${repo.description}</span></p>
+    <div class="mt-3 flex items-center">
+      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold text-slate-700 bg-slate-100 border border-slate-200">
+        <span class="w-2 h-2 rounded-full bg-slate-500"></span>
+        ${repo.language || 'Markdown'}
+      </span>
+    </div>
+  </div>
+</a>`
+  }).join("")
+
+  repoContainer.innerHTML=printRepo
+}
