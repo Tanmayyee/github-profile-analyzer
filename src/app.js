@@ -34,6 +34,8 @@ const langT=document.querySelector("#langT")
 const barF=document.querySelector("#barF")
 const barS=document.querySelector("#barS")
 const barT=document.querySelector("#barT")
+const recent=document.querySelector("#recent")
+const topRepo=document.querySelector("#topRepo")
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -42,10 +44,14 @@ form.addEventListener("submit", async (e) => {
     const res = await axios.get(`https://api.github.com/users/${username}`);
     console.log(res.data);
     profile(res.data);
+    
     const socialData = await social(username);
     socialAcc(socialData);
+   
     const repoData = await fetchAllRepos(username); //wait for data that comes from fetchAllRepos func.
-    counts(repoData);
+    counts(repoData); 
+    activeStar(repoData);
+
   } catch (e) {
     console.log("user not found");
     if (e.response && e.response.status === 404) {
@@ -74,7 +80,7 @@ const fetchAllRepos = async (user) => {
       page++;
     }
   }
-  console.log(allRepo);
+  // console.log(allRepo);
   return allRepo;
 };
 
@@ -253,3 +259,18 @@ const counts = (count) => {
   }
   
 };
+
+
+//function for latest activity  and top repos
+
+const activeStar=async (data)=>{
+   let starSort=data.toSorted((a,b)=>b.stargazers_count-a.stargazers_count);
+   let activeSort=data.toSorted((a,b)=>b.updated_at-a.updated_at);
+
+  //  console.log(activeSort.splice(0,4))
+  //  console.log("to check ")
+  //  console.log(starSort.splice(0,2))
+  
+
+
+}
