@@ -44,7 +44,7 @@ form.addEventListener("submit", async (e) => {
     const res = await axios.get(`https://api.github.com/users/${username}`);
     console.log(res.data);
     profile(res.data);
-    
+
     const socialData = await social(username);
     socialAcc(socialData);
    
@@ -264,12 +264,12 @@ const counts = (count) => {
 //function for latest activity  and top repos
 
 const activeStar=async (data)=>{
-   let starSort=data.toSorted((a,b)=>b.stargazers_count-a.stargazers_count);
-   let activeSort=data.toSorted((a,b)=>b.updated_at-a.updated_at);
+   let starSort=data.toSorted((a,b)=>b.stargazers_count - a.stargazers_count);
+   let activeSort=data.toSorted((a,b)=>b.updated_at - a.updated_at);
 
-  //  console.log(activeSort.splice(0,4))
+  //  console.log(activeSort.slice(0,4))
   //  console.log("to check ")
-  //  console.log(starSort.splice(0,2))
+  //  console.log(starSort.slice(0,2))
   
 
 
