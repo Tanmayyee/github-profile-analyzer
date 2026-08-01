@@ -220,7 +220,6 @@ const counts = (count) => {
   langF.innerText=langSorted[0].name;
   langS.innerText=langSorted[1].name;
   
-  
   langPerF.innerText=langFirst +"%";
   langPerS.innerText=langSec +"%";
   if(langThird>0){
@@ -231,32 +230,14 @@ const counts = (count) => {
     langT.innerText="Others"
   }
   
-
-  // for bar -  
+  // for bar ------------------------------------
 
   let top3Total = langSorted[0].times + langSorted[1].times + langSorted[2].times;
 
-  
   let barWidthF = top3Total > 0 ? ((langSorted[0].times / top3Total) * 100).toFixed(1) : 0;
   let barWidthS = top3Total > 0 ? ((langSorted[1].times / top3Total) * 100).toFixed(1) : 0;
   let barWidthT = top3Total > 0 ? ((langSorted[2].times / top3Total) * 100).toFixed(1) : 0;
-  // ---------------------------------------------------------
-
   
-  langF.innerText = langSorted[0].name;
-  langS.innerText = langSorted[1].name;
-  
-  langPerF.innerText = langFirst + "%";
-  langPerS.innerText = langSec + "%";
-
-  if (langThird > 0) {
-    langPerT.innerText = langThird + "%";
-    langT.innerText = langSorted[2].name;
-  } else {
-    langPerT.innerText = "0%";
-    langT.innerText = "Others";
-  }
-
  barF.style.width = barWidthF + "%";
   barF.title = langSorted[0].name;
 
