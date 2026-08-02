@@ -10,6 +10,11 @@ A sleek, highly responsive web application that fetches and visualizes GitHub us
 🔴 **Live Demo:** [GitHub Profile Analyzer on Vercel](https://github-profile-analyzer-delta.vercel.app/)
 
 ---
+## 📸 Preview
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/ddb45bd2-d44f-4d5a-8cc5-e23addcd05cc" width="48%" alt="Home Screen">
+  <img src="https://github.com/user-attachments/assets/96e0142e-eb6e-4849-bb1f-05440a82b3c5" width="48%" alt="Search Results">
+</p>
 
 ## ✨ Key Features
 
