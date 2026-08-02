@@ -364,24 +364,40 @@ const activeStar = (data) => {
 const allRepo= (data)=>{
     
   const printRepo=data.map(repo=>{
-         return`<a href="#">
-  <div class="bg-white border-2 rounded-2xl shadow-gray-800 overflow-hidden shadow-md p-4 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
+         return`<a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="block group">
+  <!-- Card Container: Added border-transparent and hover effects -->
+  <div class="bg-white border-2 rounded-2xl shadow-gray-800 shadow-md p-5 transition-all duration-300 ease-in-out group-hover:-translate-y-1 group-hover:shadow-[0_8px_30px_rgb(79,70,229,0.15)] group-hover:border-indigo-300">
     
-    <!-- Sirf is div ko flex banaya hai, ml-47 hataya hai, aur tag me shrink-0 add kiya hai -->
-    <div class="flex justify-between items-start gap-2">
-      <span class="font-bold text-2xl text-[#116ace]">${repo.name}</span>
-      <span class="shrink-0 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border border-gray-300 text-gray-600 bg-gray-50">
-        Public
+    <div class="flex justify-between items-start gap-4">
+      
+      <!-- Left side: Title and Public Badge (Flexbox for alignment) -->
+      <div class="flex flex-wrap items-center gap-3">
+        <!-- Title: Changes color and underlines on hover -->
+        <h3 class="font-bold text-xl text-[#116ace] group-hover:text-indigo-700 group-hover:underline decoration-2 underline-offset-4 transition-all">${repo.name}</h3>
+        <span class="inline-flex shrink-0 items-center px-2.5 py-0.5 rounded-full text-xs font-medium border border-gray-300 text-gray-600 bg-gray-50">
+          Public
+        </span>
+      </div>
+      
+      <!-- Right side: External Link Icon (Appears only on Hover) -->
+      <svg class="w-5 h-5 text-slate-400 opacity-0 group-hover:opacity-100 group-hover:text-indigo-600 transition-all duration-300 transform group-hover:translate-x-1 group-hover:-translate-y-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+      </svg>
+    </div>
+
+    <!-- Description -->
+    <p class="mt-3 text-slate-600 font-medium leading-relaxed line-clamp-2">
+      ${repo.description ? repo.description : 'No description provided.'}
+    </p>
+    
+    <!-- Language Badge -->
+    <div class="mt-4 flex items-center">
+      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold text-slate-700 bg-slate-100 border border-slate-200">
+        <span class="w-2 h-2 rounded-full bg-slate-500"></span>
+        ${repo.language ? repo.language : 'Markdown'}
       </span>
     </div>
 
-    <p class="mt-2"><span class="text-slate-600 font-medium leading-relaxed ">${repo.description}</span></p>
-    <div class="mt-3 flex items-center">
-      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold text-slate-700 bg-slate-100 border border-slate-200">
-        <span class="w-2 h-2 rounded-full bg-slate-500"></span>
-        ${repo.language || 'Markdown'}
-      </span>
-    </div>
   </div>
 </a>`
   }).join("")
