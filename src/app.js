@@ -46,6 +46,10 @@ form.addEventListener("submit", async (e) => {
   const username = input.value.trim();
   try {
     const res = await axios.get(`https://api.github.com/users/${username}`);
+
+    initialMsg.classList.add("hidden")
+    dashboardContent.classList.remove("hidden")
+
     console.log(res.data);
     profile(res.data);
 
@@ -371,7 +375,7 @@ const allRepo = (data) => {
     const displayClass = index >= 8 ? "hidden hidden-repo" : "";
 
     return `<a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="block group ${displayClass}">
-      <div class="bg-white border-2 border-transparent rounded-2xl shadow-md p-5 transition-all duration-300 ease-in-out group-hover:-translate-y-1 group-hover:shadow-[0_8px_30px_rgb(79,70,229,0.15)] group-hover:border-indigo-300">
+      <div class="bg-white border-2 shadow-gray-800 rounded-2xl shadow-md p-5 transition-all duration-300 ease-in-out group-hover:-translate-y-1 group-hover:shadow-[0_8px_30px_rgb(79,70,229,0.15)] group-hover:border-indigo-300">
         
         <div class="flex justify-between items-start gap-4">
           <div class="flex flex-wrap items-center gap-3">
