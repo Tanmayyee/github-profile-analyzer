@@ -68,6 +68,42 @@
       </form>
 
     </section>
+    
+    <!--  INITIAL WELCOME MESSAGE -->
+    <div id="initial-message" class="max-w-2xl mx-auto mt-16 text-center px-4 transition-all duration-700 ease-out">
+      
+      <!-- Card Container -->
+      <div class="group bg-white/40 backdrop-blur-md border-2 border-white/60 rounded-3xl p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(79,70,229,0.15)] hover:border-indigo-300 hover:-translate-y-2 transition-all duration-500">
+        
+        <!-- Icon Section with Custom Float Animation -->
+        <div class="relative inline-flex items-center justify-center w-24 h-24 mb-6 floating-icon">
+          
+          <!-- Soft, gentle breathing glow (Blur + Pulse) -->
+          <div class="absolute inset-0 bg-indigo-400/20 rounded-full blur-xl animate-pulse"></div>
+          
+          <!-- Main Icon Circle -->
+          <div class="relative flex items-center justify-center w-20 h-20 rounded-full bg-white shadow-lg border border-indigo-50 transition-all duration-500 ease-out group-hover:rotate-12 group-hover:scale-110 group-hover:border-indigo-200">
+            <svg class="w-10 h-10 text-[#4f46e5] drop-shadow-sm transition-colors duration-300 group-hover:text-purple-600" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Heading with Gradient Text -->
+        <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight mb-4 text-transparent bg-clip-text bg-linear-to-r from-indigo-600 to-purple-600">
+          Ready to Analyze?
+        </h2>
+        
+        <!-- Description text -->
+        <p class="text-slate-600 font-medium text-lg leading-relaxed max-w-xl mx-auto group-hover:text-slate-800 transition-colors duration-300">
+          Enter a GitHub username above to instantly fetch their profile, top repositories, programming languages, and contribution stats.
+        </p>
+
+      </div>
+    </div>
+
+    <!-- ###################################################### hidden ############################################# -->
+    <div id="dashboardContent" class="hidden">
 
     <!--######################################################## Profile section & Language ##################################################### -->
 
@@ -283,7 +319,7 @@
       </div>
     </section>
 
-    
+  </div>
 
   </main>
 

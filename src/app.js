@@ -2,6 +2,8 @@
 
 import axios from "axios";
 
+const initialMsg=document.querySelector("#initialMsg")
+const dashboardContent=document.querySelector("#dashboardContent")
 const btn = document.querySelector("#searchbtn");
 const input = document.querySelector("#input");
 const pimg = document.querySelector("#pimg");

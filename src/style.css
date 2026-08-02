@@ -5,3 +5,17 @@
   --font-bitcount: "Bitcount Prop Single", sans-serif;
 }
 
+/* Slow Float/Levitate Animation */
+@keyframes slowFloat {
+  0%, 100% { 
+    transform: translateY(0); 
+  }
+  50% { 
+    transform: translateY(-12px); 
+  }
+}
+
+.floating-icon {
+  /* 4 seconds ka time diya hai taaki bahut aaram se upar neeche ho */
+  animation: slowFloat 4s ease-in-out infinite; 
+}
