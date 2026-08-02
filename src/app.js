@@ -45,6 +45,8 @@ form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const username = input.value.trim();
   if (!username) return;   //Stop execution if the input is empty (e.g., user just typed spaces)  , so no error if user presses enter without typing anything.
+  
+  input.blur();// Remove focus from the input field after submission(remove keyboard on mobile)
 
   try {
     const res = await axios.get(`https://api.github.com/users/${username}`);
