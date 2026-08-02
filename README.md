@@ -7,7 +7,7 @@
 
 A sleek, highly responsive web application that fetches and visualizes GitHub user data in real-time. Built with a mobile-first approach, this tool allows users to seamlessly search for any GitHub profile and instantly view their statistics, repositories, and social presence.
 
-🔴 **Live Demo:** [GitHub Profile Analyzer on Vercel](https://github-profile-analyzer-delta.vercel.app/)
+🔴 **Live Demo:** <a href="https://github-profile-analyzer-delta.vercel.app/" target="_blank" rel="noopener noreferrer">GitHub Profile Analyzer on Vercel</a>
 
 ---
 
@@ -44,7 +44,7 @@ To run this project locally on your machine, follow these steps:
 2. **Install the dependencies:**
    npm install
 
-3. **Start the development server:**   
+4. **Start the development server:**   
    npm run dev
    
 5. **Open in Browser:**
@@ -59,12 +59,12 @@ This project is currently fully functional and live in a production environment 
 *Potential Future Enhancements:*
 * Caching recent searches using browser `localStorage`.
 * Implementing a system-wide Dark/Light theme toggle.
-* 
+ 
 ## 👤 Author
 
 **Tanmay Johri**
 A passionate Full-Stack MERN developer crafting clean and efficient web applications.
-[GitHub](https://github.com/tanmayyee) · [LinkedIn](https://www.linkedin.com/in/tanmayjohri/)
+* [GitHub](https://github.com/tanmayyee) · [LinkedIn](https://www.linkedin.com/in/tanmayjohri/)
 
 ## 📄 License
 
