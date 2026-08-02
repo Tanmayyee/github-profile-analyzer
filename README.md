@@ -7,13 +7,7 @@
 
 A sleek, highly responsive web application that fetches and visualizes GitHub user data in real-time. Built with a mobile-first approach, this tool allows users to seamlessly search for any GitHub profile and instantly view their statistics, repositories, and social presence.
 
-## 🌐 Live Demo
-
-👉 https://github-profile-analyzer-delta.vercel.app/
-
-or
-
-👉 [Open GitHub Profile Analyzer](https://github-profile-analyzer-delta.vercel.app/)
+🔴 **Live Demo:** [GitHub Profile Analyzer on Vercel](https://github-profile-analyzer-delta.vercel.app/)
 
 ---
 
