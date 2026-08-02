@@ -10,7 +10,7 @@
     href="https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&family=Press+Start+2P&display=swap"
     rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>github-profile-analyzer</title>
+  <title>GitHub Profile Analyzer | By Tanmay</title>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <link rel="stylesheet" href="src/style.css">
 
@@ -19,26 +19,37 @@
 <body
   class=" min-h-screen font-sans antialiased bg-[url('https://images.unsplash.com/photo-1670893494919-412b65e5e58c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center bg-no-repeat">
 
-  <nav
-    class="w-full max-w-7xl mx-auto mt-4 px-4 sm:px-6 py-3 grid grid-cols-3 sm:grid-cols-[1fr_auto_1fr] items-center text-white gap-2">
+<nav
+  class="w-full max-w-7xl mx-auto mt-4 px-2 sm:px-6 py-3 grid grid-cols-[1fr_auto_1fr] items-center text-white gap-2">
 
-    <!-- Left Column (Empty to balance the right side) -->
-    <div></div>
+  <!-- Left Column (Empty to balance the center alignment) -->
+  <div></div>
 
-    <!-- Center Column (Responsive font & text wrap) -->
-    <h1 class=" sm:text-xl md:text-3xl font-bold font-press text-center leading-tight">
-      GitHub Profile<span class="inline sm:block md:inline text-indigo-300 "> Analyzer</span>
-    </h1>
+  <!-- Center Column (3 lines on mobile, 1 line on desktop) -->
+  <h1 class="text-[11px] sm:text-xl md:text-3xl font-bold font-press text-center leading-[1.8] sm:leading-tight">
+    <span class="block sm:inline">GitHub</span>
+    <span class="block sm:inline">Profile</span>
+    <span class="block sm:inline text-indigo-300">Analyzer</span>
+  </h1>
 
-    <!-- Right Column (Pushed to the right) -->
-    <div class="flex justify-end md:text-xl text-xs">
-      <a href="https://github.com/Tanmayyee" target="_blank" rel="noopener noreferrer"
-        class="text-sm sm:text-base font-bold bg-white/20 backdrop-blur-md px-4 py-2 rounded-full hover:bg-white/40 hover:text-indigo-900 transition-all shadow-md">
-        GitHub
-      </a>
-    </div>
+  <!-- Right Column (Button always on the side) -->
+  <div class="flex justify-end">
+    <a href="https://github.com/Tanmayyee" target="_blank" rel="noopener noreferrer"
+      class="flex items-center gap-1.5 sm:gap-2 text-[9px] sm:text-base font-bold bg-white/20 backdrop-blur-md px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-full hover:bg-white/40 hover:text-indigo-900 transition-all shadow-md group">
 
-  </nav>
+      <!-- GitHub SVG Icon -->
+      <svg class="w-3.5 h-3.5 sm:w-5 sm:h-5 fill-current transition-transform group-hover:scale-110" viewBox="0 0 24 24"
+        aria-hidden="true">
+        <path fill-rule="evenodd"
+          d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+          clip-rule="evenodd"></path>
+      </svg>
+
+      @Tanmayyee
+    </a>
+  </div>
+
+</nav>
 
   <main class="max-w-7xl mx-auto mb-10">
 
@@ -68,35 +79,44 @@
       </form>
 
     </section>
-    
+
     <!--  INITIAL WELCOME MESSAGE -->
     <div id="initialMsg" class="max-w-2xl mx-auto mt-16 text-center px-4 transition-all duration-700 ease-out">
-      
+
       <!-- Card Container -->
-      <div class="group bg-white/40 backdrop-blur-md border-2 border-white/60 rounded-3xl p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(79,70,229,0.15)] hover:border-indigo-300 hover:-translate-y-2 transition-all duration-500">
-        
+      <div
+        class="group bg-white/40 backdrop-blur-md border-2 border-white/60 rounded-3xl p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(79,70,229,0.15)] hover:border-indigo-300 hover:-translate-y-2 transition-all duration-500">
+
         <!-- Icon Section with Custom Float Animation -->
         <div class="relative inline-flex items-center justify-center w-24 h-24 mb-6 floating-icon">
-          
+
           <!-- Soft, gentle breathing glow (Blur + Pulse) -->
           <div class="absolute inset-0 bg-indigo-400/20 rounded-full blur-xl animate-pulse"></div>
-          
+
           <!-- Main Icon Circle -->
-          <div class="relative flex items-center justify-center w-20 h-20 rounded-full bg-white shadow-lg border border-indigo-50 transition-all duration-500 ease-out group-hover:rotate-12 group-hover:scale-110 group-hover:border-indigo-200">
-            <svg class="w-10 h-10 text-[#4f46e5] drop-shadow-sm transition-colors duration-300 group-hover:text-purple-600" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
+          <div
+            class="relative flex items-center justify-center w-20 h-20 rounded-full bg-white shadow-lg border border-indigo-50 transition-all duration-500 ease-out group-hover:rotate-12 group-hover:scale-110 group-hover:border-indigo-200">
+            <svg
+              class="w-10 h-10 text-[#4f46e5] drop-shadow-sm transition-colors duration-300 group-hover:text-purple-600"
+              fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill-rule="evenodd"
+                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                clip-rule="evenodd"></path>
             </svg>
           </div>
         </div>
 
         <!-- Heading with Gradient Text -->
-        <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight mb-4 text-transparent bg-clip-text bg-linear-to-r from-indigo-600 to-purple-600">
+        <h2
+          class="text-2xl sm:text-4xl font-extrabold tracking-tight mb-4 text-transparent bg-clip-text bg-linear-to-r from-indigo-600 to-purple-600">
           Ready to Analyze?
         </h2>
-        
+
         <!-- Description text -->
-        <p class="text-slate-600 font-medium text-lg leading-relaxed max-w-xl mx-auto group-hover:text-slate-800 transition-colors duration-300">
-          Enter a GitHub username above to instantly fetch their profile, top repositories, programming languages, and contribution stats.
+        <p
+          class="text-slate-600 font-medium text-lg leading-relaxed max-w-xl mx-auto group-hover:text-slate-800 transition-colors duration-300">
+          Enter a GitHub username above to instantly fetch their profile, top repositories, programming languages, and
+          contribution stats.
         </p>
 
       </div>
@@ -105,221 +125,223 @@
     <!-- ###################################################### hidden ############################################# -->
     <div id="dashboardContent" class="hidden">
 
-    <!--######################################################## Profile section & Language ##################################################### -->
+      <!--######################################################## Profile section & Language ##################################################### -->
 
-    <section class="max-w-6xl mx-auto flex flex-col md:flex-row gap-6 px-4 py-2 ">
-      <!--max-w-6xl mx-auto px-4 py-2 mt-3 mb-10-->
+      <section class="max-w-6xl mx-auto flex flex-col md:flex-row gap-6 px-4 py-2 ">
+        <!--max-w-6xl mx-auto px-4 py-2 mt-3 mb-10-->
 
-      <!-- LEFT COLUMN: Identity Card -->
-      <div
-        class="w-full md:w-1/3 flex flex-col items-center p-8 bg-white/95 border-2 rounded-2xl shadow-gray-800 overflow-hidden shadow-md transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg "
-        id="profile-sidebar">
+        <!-- LEFT COLUMN: Identity Card -->
+        <div
+          class="w-full md:w-1/3 flex flex-col items-center p-8 bg-white/95 border-2 rounded-2xl shadow-gray-800 overflow-hidden shadow-md transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg "
+          id="profile-sidebar">
 
-        <!-- Note: Changed w-50/h-50 to w-48/h-48 because 50 is not a standard Tailwind class -->
-        <img src="https://avatars.githubusercontent.com/u/220878413?v=4" alt="profile img" id="pimg"
-          class="w-48 h-48 rounded-full border-4 border-slate-100 object-cover shadow-md mb-4">
+          <!-- Note: Changed w-50/h-50 to w-48/h-48 because 50 is not a standard Tailwind class -->
+          <img src="https://avatars.githubusercontent.com/u/220878413?v=4" alt="profile img" id="pimg"
+            class="w-48 h-48 rounded-full border-4 border-slate-100 object-cover shadow-md mb-4">
 
-        <div class="text-center w-full">
-          <h2 id="pname" class="text-3xl font-extrabold text-slate-800 tracking-tight">Tanmay Johri</h2>
-          <a id="purl" href="">
-            <p id="uname" class="text-[#4f46e5] font-medium mt-1">@tanmyyee</p>
-          </a>
+          <div class="text-center w-full">
+            <h2 id="pname" class="text-3xl font-extrabold text-slate-800 tracking-tight">Tanmay Johri</h2>
+            <a id="purl" href="">
+              <p id="uname" class="text-[#4f46e5] font-medium mt-1">@tanmyyee</p>
+            </a>
 
-          <div class="flex justify-center gap-4 mt-4 font-semibold text-slate-700 bg-slate-50 py-2 rounded-xl">
-            <p><span id="followers-count" class="text-slate-900">3</span> Followers</p>
-            <p>•</p>
-            <p><span id="following-count" class="text-slate-900">6</span> Following</p>
-          </div>
+            <div class="flex justify-center gap-4 mt-4 font-semibold text-slate-700 bg-slate-50 py-2 rounded-xl">
+              <p><span id="followers-count" class="text-slate-900">3</span> Followers</p>
+              <p>•</p>
+              <p><span id="following-count" class="text-slate-900">6</span> Following</p>
+            </div>
 
-          <p class="mt-4 flex justify-center items-center gap-1.5 text-slate-600 font-medium">
-            <svg class="w-4 h-4 fill-current" aria-hidden="true" viewBox="0 0 16 16" version="1.1">
-              <path
-                d="m12.596 11.596-3.535 3.536a1.5 1.5 0 0 1-2.122 0l-3.535-3.536a6.5 6.5 0 1 1 9.192-9.193 6.5 6.5 0 0 1 0 9.193Zm-1.06-8.132v-.001a5 5 0 1 0-7.072 7.072L8 14.07l3.536-3.534a5 5 0 0 0 0-7.072ZM8 9a2 2 0 1 1-.001-3.999A2 2 0 0 1 8 9Z">
-              </path>
-            </svg>
-            <span id="location">India</span>
-          </p>
-          <p class="mt-4 flex justify-center items-center gap-1.5 text-slate-600 font-medium"><svg
-              data-component="Octicon" class="octicon octicon-organization" viewBox="0 0 16 16" version="1.1" width="16"
-              height="16" aria-hidden="true">
-              <path
-                d="M1.75 16A1.75 1.75 0 0 1 0 14.25V1.75C0 .784.784 0 1.75 0h8.5C11.216 0 12 .784 12 1.75v12.5c0 .085-.006.168-.018.25h2.268a.25.25 0 0 0 .25-.25V8.285a.25.25 0 0 0-.111-.208l-1.055-.703a.749.749 0 1 1 .832-1.248l1.055.703c.487.325.779.871.779
+            <p class="mt-4 flex justify-center items-center gap-1.5 text-slate-600 font-medium">
+              <svg class="w-4 h-4 fill-current" aria-hidden="true" viewBox="0 0 16 16" version="1.1">
+                <path
+                  d="m12.596 11.596-3.535 3.536a1.5 1.5 0 0 1-2.122 0l-3.535-3.536a6.5 6.5 0 1 1 9.192-9.193 6.5 6.5 0 0 1 0 9.193Zm-1.06-8.132v-.001a5 5 0 1 0-7.072 7.072L8 14.07l3.536-3.534a5 5 0 0 0 0-7.072ZM8 9a2 2 0 1 1-.001-3.999A2 2 0 0 1 8 9Z">
+                </path>
+              </svg>
+              <span id="location">India</span>
+            </p>
+            <p class="mt-4 flex justify-center items-center gap-1.5 text-slate-600 font-medium"><svg
+                data-component="Octicon" class="octicon octicon-organization" viewBox="0 0 16 16" version="1.1"
+                width="16" height="16" aria-hidden="true">
+                <path
+                  d="M1.75 16A1.75 1.75 0 0 1 0 14.25V1.75C0 .784.784 0 1.75 0h8.5C11.216 0 12 .784 12 1.75v12.5c0 .085-.006.168-.018.25h2.268a.25.25 0 0 0 .25-.25V8.285a.25.25 0 0 0-.111-.208l-1.055-.703a.749.749 0 1 1 .832-1.248l1.055.703c.487.325.779.871.779
                  1.456v5.965A1.75 1.75 0 0 1 14.25 16h-3.5a.766.766 0 0 1-.197-.026c-.099.017-.2.026-.303.026h-3a.75.75 0 0 1-.75-.75V14h-1v1.25a.75.75 0 0 1-.75.75Zm-.25-1.75c0 .138.112.25.25.25H4v-1.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 .75.75v1.25h2.25a.25.25
                  0 0 0 .25-.25V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25ZM3.75 6h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM3 3.75A.75.75 0 0 1 3.75 3h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 3 3.75Zm4 3A.75.75 0 0 1 7.75 6h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 
                  0 1 7 6.75ZM7.75 3h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM3 9.75A.75.75 0 0 1 3.75 9h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 3 9.75ZM7.75 9h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5Z">
-              </path>
-            </svg><span id="company">not-specified</span></p>
+                </path>
+              </svg><span id="company">not-specified</span></p>
+          </div>
         </div>
-      </div>
 
-      <!-- RIGHT COLUMN: Details & Stats -->
-      <div class="w-full md:w-2/3 flex flex-col gap-6">
+        <!-- RIGHT COLUMN: Details & Stats -->
+        <div class="w-full md:w-2/3 flex flex-col gap-6">
 
-        <!-- Details Card -->
-        <div
-          class="p-8 bg-white/95 border-2 rounded-2xl shadow-gray-800 overflow-hidden shadow-md transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
-          <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
-            <span class="w-8 h-1 bg-indigo-500 rounded-full"></span> About
-          </h3>
+          <!-- Details Card -->
+          <div
+            class="p-8 bg-white/95 border-2 rounded-2xl shadow-gray-800 overflow-hidden shadow-md transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
+            <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+              <span class="w-8 h-1 bg-indigo-500 rounded-full"></span> About
+            </h3>
 
-          <!-- Grid aligns the labels and content perfectly -->
-          <div id="about" class="grid grid-cols-[100px_1fr] sm:grid-cols-[120px_1fr] gap-y-4 text-slate-700">
+            <!-- Grid aligns the labels and content perfectly -->
+            <div id="about" class="grid grid-cols-[100px_1fr] sm:grid-cols-[120px_1fr] gap-y-4 text-slate-700">
 
-            <p class="font-semibold text-slate-500">Bio</p>
-            <p id="bio" class="text-slate-600 font-medium leading-relaxed">Full Stack Developer | React.js • Node.js •
-              Express • MongoDB • DSA</p>
+              <p class="font-semibold text-slate-500">Bio</p>
+              <p id="bio" class="text-slate-600 font-medium leading-relaxed">Full Stack Developer | React.js • Node.js •
+                Express • MongoDB • DSA</p>
 
-            <!-- <p class="font-semibold text-slate-500">Email</p>
+              <!-- <p class="font-semibold text-slate-500">Email</p>
             <p><a href="mailto:tanmayjohri@gmail.com" id="email" class="text-indigo-600 font-semibold
                hover:text-indigo-800 transition-colors">tanmayjohri@gmail.com</a></p> -->
 
-            <p class="font-semibold text-slate-500">Links</p>
-            <p><a id="links" href="#"
-                class="text-indigo-600 font-semibold hover:text-indigo-800 hover:underline transition-colors">linkedin.com/in/tanmayjohri</a>
-            </p>
+              <p class="font-semibold text-slate-500">Links</p>
+              <p><a id="links" href="#"
+                  class="text-indigo-600 font-semibold hover:text-indigo-800 hover:underline transition-colors">linkedin.com/in/tanmayjohri</a>
+              </p>
 
-            <!-- <p  id="socialApp" class="font-semibold text-slate-500">Social</p>
+              <!-- <p  id="socialApp" class="font-semibold text-slate-500">Social</p>
             <p><a href="#" id="socialLink" class="text-indigo-600 hover:underline">Check Out</a></p> -->
 
-          </div>
-        </div>
-
-        <!-- Language used card -->
-        <div
-          class="p-8 bg-white/95 border-2 rounded-2xl shadow-gray-800 overflow-hidden shadow-md flex flex-col justify-center transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
-          <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
-            <span class="w-8 h-1 bg-amber-400 rounded-full"></span> Languages Used
-          </h3>
-          <p class="text-xs font-medium text-slate-500 mb-6 border-b pb-2">Based on self-created repositories.</p>
-
-          <!-- Progress Bar Chart -->
-          <div id="language-bar" class="w-full h-3 bg-slate-200 rounded-full overflow-hidden flex shadow-inner mb-6">
-            <!-- Inline styles (style="width: X%") use kiye hain kyunki JS inhe dynamically change karega -->
-            <div id="barF" class="bg-[#f1e05a] h-full transition-all duration-500" style="width: 0%;" title=""></div>
-            <div id="barS" class="bg-[#e34c26] h-full transition-all duration-500" style="width: 0%;" title=""></div>
-            <div id="barT" class="bg-[#563d7c] h-full transition-all duration-500" style="width: 0%;" title=""></div>
+            </div>
           </div>
 
-          <!-- Language Legend (Dots and Text) -->
-          <div id="language-legend" class="flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-slate-700">
+          <!-- Language used card -->
+          <div
+            class="p-8 bg-white/95 border-2 rounded-2xl shadow-gray-800 overflow-hidden shadow-md flex flex-col justify-center transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
+            <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+              <span class="w-8 h-1 bg-amber-400 rounded-full"></span> Languages Used
+            </h3>
+            <p class="text-xs font-medium text-slate-500 mb-6 border-b pb-2">Based on self-created repositories.</p>
 
-            <!-- FIRST LANGUAGE -->
-            <div class="flex items-center gap-2">
-              <span class="w-3 h-3 rounded-full bg-[#f1e05a] shadow-sm"></span>
-              <!-- Dono span ko alag kar diya -->
-              <span id="langF">JavaScript</span>
-              <span id="langPerF" class="text-slate-500 font-normal ml-1">60%</span>
+            <!-- Progress Bar Chart -->
+            <div id="language-bar" class="w-full h-3 bg-slate-200 rounded-full overflow-hidden flex shadow-inner mb-6">
+              <!-- Inline styles (style="width: X%") use kiye hain kyunki JS inhe dynamically change karega -->
+              <div id="barF" class="bg-[#f1e05a] h-full transition-all duration-500" style="width: 0%;" title=""></div>
+              <div id="barS" class="bg-[#e34c26] h-full transition-all duration-500" style="width: 0%;" title=""></div>
+              <div id="barT" class="bg-[#563d7c] h-full transition-all duration-500" style="width: 0%;" title=""></div>
             </div>
 
-            <!-- SECOND LANGUAGE -->
-            <div class="flex items-center gap-2">
-              <span class="w-3 h-3 rounded-full bg-[#e34c26] shadow-sm"></span>
-              <span id="langS">HTML</span>
-              <span id="langPerS" class="text-slate-500 font-normal ml-1">25%</span>
-            </div>
+            <!-- Language Legend (Dots and Text) -->
+            <div id="language-legend" class="flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-slate-700">
 
-            <!-- THIRD LANGUAGE -->
-            <div class="flex items-center gap-2">
-              <span class="w-3 h-3 rounded-full bg-[#563d7c] shadow-sm"></span>
-              <span id="langT">CSS</span>
-              <span id="langPerT" class="text-slate-500 font-normal ml-1">15%</span>
+              <!-- FIRST LANGUAGE -->
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-[#f1e05a] shadow-sm"></span>
+                <!-- Dono span ko alag kar diya -->
+                <span id="langF">JavaScript</span>
+                <span id="langPerF" class="text-slate-500 font-normal ml-1">60%</span>
+              </div>
+
+              <!-- SECOND LANGUAGE -->
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-[#e34c26] shadow-sm"></span>
+                <span id="langS">HTML</span>
+                <span id="langPerS" class="text-slate-500 font-normal ml-1">25%</span>
+              </div>
+
+              <!-- THIRD LANGUAGE -->
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-[#563d7c] shadow-sm"></span>
+                <span id="langT">CSS</span>
+                <span id="langPerT" class="text-slate-500 font-normal ml-1">15%</span>
+              </div>
+
             </div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!--########################################################### COUNTS ###################################################################### -->
+
+      <section class="max-w-6xl mx-auto px-4 py-2 mt-3 mb-10 ">
+        <div
+          class="grid grid-cols-1 md:grid-cols-4 bg-white/95 text-center border-2 rounded-2xl shadow-gray-800 overflow-hidden shadow-md transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
+
+          <!-- Stat Block 1: Repositories -->
+          <div
+            class="p-6 hover:bg-emerald-50 hover:border-emerald-300 transition-colors duration-300 border-r border-gray-300   ">
+            <p id="repoCount" class="text-3xl font-extrabold text-slate-800 ">12</p>
+            <p class="text-xs font-semibold text-slate-500  mt-1 uppercase tracking-wider">Repositories</p>
+          </div>
+
+          <!-- Stat Block 2: stars earned -->
+          <div
+            class="p-6 hover:bg-amber-50 hover:border-amber-300 transition-colors duration-300 border-r border-l border-gray-300">
+            <p id="starEarn" class="text-3xl font-extrabold text-slate-800 ">2</p>
+            <p class="text-xs font-semibold text-slate-500 mt-1 uppercase tracking-wider">Stars Earned</p>
+          </div>
+
+          <!-- Stat Block 3: forks earned -->
+          <div
+            class="p-6 hover:bg-indigo-50 hover:border-indigo-300 transition-colors duration-300 border-r border-l border-gray-300  ">
+            <p id="forkEarn" class="text-3xl font-extrabold text-slate-800 ">30</p>
+            <p class="text-xs font-semibold text-slate-500  mt-1 uppercase tracking-wider">forks Earned</p>
+          </div>
+
+          <!--Stat Block 4: forked repos -->
+          <div
+            class="p-6 hover:bg-sky-50 hover:border-sky-300 transition-colors duration-300 border-l border-gray-300 ">
+            <p id="forkRepo" class="text-3xl font-extrabold text-slate-800 ">12</p>
+            <p class="text-xs font-semibold text-slate-500  mt-1 uppercase tracking-wider">forked repos</p>
+          </div>
+
+        </div>
+      </section>
+
+      <!--######################################################## Repositories ################################################################### -->
+
+      <section class="max-w-6xl mx-auto px-4 py-2 mt-2 mb-10 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div
+          class="bg-white  border-2 rounded-2xl shadow-gray-800 overflow-hidden shadow-md p-4 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
+          <h2 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+            <span class="w-3 h-3 bg-rose-500 rounded-full animate-pulse"></span> Latest Activity
+          </h2>
+
+          <ul id="recent" class="space-y-3">
+
+            <!-- target="_blank" handles the blank window, rel="noopener noreferrer" prevents reverse tabnabbing and privacy leaks -->
+
+            <!-- recentContainer.innerHTML=recentCard -->
+
+          </ul>
+        </div>
+
+        <div
+          class="bg-white  border-2 rounded-2xl shadow-gray-800 overflow-hidden shadow-md p-4 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
+          <h2 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+            <span>⭐</span> Most Starred
+          </h2>
+
+          <ul id="topRepo" class="space-y-3">
+
+            <!-- topRepoContainer.innerHTML=topRepoCard -->
+
+          </ul>
+        </div>
+      </section>
+
+      <!--######################################################## Repositories ################################################################### -->
+      <section class="max-w-6xl mx-auto px-4 py-2 mt-2 mb-10 ">
+        <div>
+          <h2 class="text-center font-bold text-3xl text-black mb-4 border-b-2 pb-2 ">REPOSITORIES</h2>
+          <div id="repoContainer" class=" grid grid-cols-1 md:grid-cols-2 gap-6 ">
+
+            <!-- repoContainer.innerHTML=printRepo -->
 
           </div>
-        </div>
 
-      </div>
-
-    </section>
-
-    <!--########################################################### COUNTS ###################################################################### -->
-
-    <section class="max-w-6xl mx-auto px-4 py-2 mt-3 mb-10 ">
-      <div
-        class="grid grid-cols-1 md:grid-cols-4 bg-white/95 text-center border-2 rounded-2xl shadow-gray-800 overflow-hidden shadow-md transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
-
-        <!-- Stat Block 1: Repositories -->
-        <div
-          class="p-6 hover:bg-emerald-50 hover:border-emerald-300 transition-colors duration-300 border-r border-gray-300   ">
-          <p id="repoCount" class="text-3xl font-extrabold text-slate-800 ">12</p>
-          <p class="text-xs font-semibold text-slate-500  mt-1 uppercase tracking-wider">Repositories</p>
-        </div>
-
-        <!-- Stat Block 2: stars earned -->
-        <div
-          class="p-6 hover:bg-amber-50 hover:border-amber-300 transition-colors duration-300 border-r border-l border-gray-300">
-          <p id="starEarn" class="text-3xl font-extrabold text-slate-800 ">2</p>
-          <p class="text-xs font-semibold text-slate-500 mt-1 uppercase tracking-wider">Stars Earned</p>
-        </div>
-
-        <!-- Stat Block 3: forks earned -->
-        <div
-          class="p-6 hover:bg-indigo-50 hover:border-indigo-300 transition-colors duration-300 border-r border-l border-gray-300  ">
-          <p id="forkEarn" class="text-3xl font-extrabold text-slate-800 ">30</p>
-          <p class="text-xs font-semibold text-slate-500  mt-1 uppercase tracking-wider">forks Earned</p>
-        </div>
-
-        <!--Stat Block 4: forked repos -->
-        <div class="p-6 hover:bg-sky-50 hover:border-sky-300 transition-colors duration-300 border-l border-gray-300 ">
-          <p id="forkRepo" class="text-3xl font-extrabold text-slate-800 ">12</p>
-          <p class="text-xs font-semibold text-slate-500  mt-1 uppercase tracking-wider">forked repos</p>
-        </div>
-
-      </div>
-    </section>
-
-    <!--######################################################## Repositories ################################################################### -->
-
-    <section class="max-w-6xl mx-auto px-4 py-2 mt-2 mb-10 grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div
-        class="bg-white  border-2 rounded-2xl shadow-gray-800 overflow-hidden shadow-md p-4 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
-        <h2 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
-          <span class="w-3 h-3 bg-rose-500 rounded-full animate-pulse"></span> Latest Activity
-        </h2>
-
-        <ul id="recent" class="space-y-3">
-
-          <!-- target="_blank" handles the blank window, rel="noopener noreferrer" prevents reverse tabnabbing and privacy leaks -->
-
-          <!-- recentContainer.innerHTML=recentCard -->
-
-        </ul>
-      </div>
-
-      <div
-        class="bg-white  border-2 rounded-2xl shadow-gray-800 overflow-hidden shadow-md p-4 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
-        <h2 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
-          <span>⭐</span> Most Starred
-        </h2>
-
-        <ul id="topRepo" class="space-y-3">
-
-          <!-- topRepoContainer.innerHTML=topRepoCard -->
-
-        </ul>
-      </div>
-    </section>
-
-    <!--######################################################## Repositories ################################################################### -->
-    <section class="max-w-6xl mx-auto px-4 py-2 mt-2 mb-10 ">
-      <div>
-        <h2 class="text-center font-bold text-3xl text-black mb-4 border-b-2 pb-2 ">REPOSITORIES</h2>
-        <div id="repoContainer" class=" grid grid-cols-1 md:grid-cols-2 gap-6 ">
-          
-          <!-- repoContainer.innerHTML=printRepo -->
+          <div class="mt-8 flex justify-center">
+            <button id="loadMoreBtn"
+              class="hidden px-8 py-3 bg-indigo-600 text-white font-bold rounded-full shadow-md hover:bg-indigo-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg focus:outline-none">
+              Load More Repositories ⬇️
+            </button>
+          </div>
 
         </div>
+      </section>
 
-        <div class="mt-8 flex justify-center">
-          <button id="loadMoreBtn" class="hidden px-8 py-3 bg-indigo-600 text-white font-bold rounded-full shadow-md hover:bg-indigo-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg focus:outline-none">
-            Load More Repositories ⬇️
-          </button>
-        </div>
-        
-      </div>
-    </section>
-
-  </div>
+    </div>
 
   </main>
 
@@ -355,7 +377,8 @@
           class="hover:text-indigo-400 transition-colors">API Info</a>
         <a href="https://www.linkedin.com/in/tanmayjohri/" target="_blank"
           class="hover:text-indigo-400 transition-colors">LinkedIn</a>
-        <a href="https://github.com/Tanmayyee" target="_blank" class="hover:text-indigo-400 transition-colors">GitHub</a>
+        <a href="https://github.com/Tanmayyee" target="_blank"
+          class="hover:text-indigo-400 transition-colors">GitHub</a>
       </div>
 
     </div>
