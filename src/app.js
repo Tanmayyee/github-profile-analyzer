@@ -109,10 +109,13 @@ const profile = (details) => {
   //     location.innerText="Not Specified"
   //    }
   location.innerText = details.location ? details.location : "Not specified";
+  company.innerText = details.company ? details.company : "Not specified";
   bio.innerText = details.bio ? details.bio : "Not specified";
-  email.innerText = details.email ? details.email : "Not specified";
+  // email.innerText = details.email ? details.email : "Not specified";
   links.href = details.blog ? details.blog : "Not specified";
   links.innerText = details.blog ? details.blog : "Not specified";
+
+  
 };
 
 const socialAcc = (accounts) => {
