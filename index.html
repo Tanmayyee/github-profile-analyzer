@@ -269,31 +269,21 @@
       <div>
         <h2 class="text-center font-bold text-3xl text-black mb-4 border-b-2 pb-2 ">REPOSITORIES</h2>
         <div id="repoContainer" class=" grid grid-cols-1 md:grid-cols-2 gap-6 ">
-          <!-- <a href="#">
-            <div
-              class="bg-white  border-2 rounded-2xl shadow-gray-800 overflow-hidden shadow-md p-4 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
-              <p><span class="font-bold text-2xl text-[#116ace]">Github profile analyzer</span>
-                <span
-                  class="inline-flex items-center px-2.5 py-0.5 ml-47 rounded-full text-xs font-medium border border-gray-300 text-gray-600 bg-gray-50">
-                  Public</span>
-              </p>
-
-              <p class="mt-2"><span class="text-slate-600 font-medium leading-relaxed ">A GitHub profile dashboard that
-                  visualizes languages, stars, and
-                  stats for any username.</span></p>
-              <div class="mt-3 flex items-center">
-                <span
-                  class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold text-slate-700 bg-slate-100 border border-slate-200">
-                  <span class="w-2 h-2 rounded-full bg-slate-500"></span>
-                  ${repo.language || 'Markdown'}
-                </span>
-              </div>
-            </div>
-          </a> -->
+          
+          <!-- repoContainer.innerHTML=printRepo -->
 
         </div>
+
+        <div class="mt-8 flex justify-center">
+          <button id="loadMoreBtn" class="hidden px-8 py-3 bg-indigo-600 text-white font-bold rounded-full shadow-md hover:bg-indigo-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg focus:outline-none">
+            Load More Repositories ⬇️
+          </button>
+        </div>
+        
       </div>
     </section>
+
+    
 
   </main>
 
